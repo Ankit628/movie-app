@@ -1,9 +1,9 @@
 <template>
     <div class="page-wrapper">
-        <section class="details-banner pb-5">
+        <section class="details-banner pb-2 pb-md-5">
             <div class="row bg-dark">
                 <div class="col-md-12 position-relative">
-                    <div class="bg-image text-center" v-bind:style="'background-image:url(https://image.tmdb.org/t/p/original'+details.backdrop_path+')'"></div>
+                    <img class="bg-image" v-bind:src="'https://image.tmdb.org/t/p/original'+details.backdrop_path" v-bind:alt="details.original_title"></img>
                     <div class="page-title">
                         <h1 class="text-white">
                             {{details.original_title}}
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </section>
-        <section class="details-content p-5">
+        <section class="details-content p-2 p-md-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 d-none d-md-block">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </section>
-        <section class="casts-area p-5 bg-dark">
+        <section class="casts-area p-2 p-md-5 bg-dark">
             <div class="continer-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -103,11 +103,8 @@
     }
 
     .bg-image {
-        padding: 20rem;
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-attachment: fixed;
-        background-size: cover;
-        opacity: 0.5
+        opacity: 0.5;
+        max-width: 100%;
+        width: 100%;
     }
 </style>

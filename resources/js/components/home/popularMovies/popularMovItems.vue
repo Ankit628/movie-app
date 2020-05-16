@@ -6,7 +6,7 @@
             </div>
             <div class="back">
                 <h3>{{movie.title}}</h3>
-                <p>{{movie.overview.slice(0, 70)}}...</p>
+                <p class="d-none d-md-block">{{movie.overview.slice(0, 70)}}...</p>
                 <router-link v-bind:to="{ name: 'movie-details', params: { id: movie.id } }" class="btn btn-sm btn-secondary">Read more</router-link>
             </div>
         </div>

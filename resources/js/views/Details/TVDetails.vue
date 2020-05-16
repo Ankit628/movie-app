@@ -36,9 +36,6 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         responsive: {
-                            0: {
-                                items: 2
-                            },
                             600: {
                                 items: 4
                             },

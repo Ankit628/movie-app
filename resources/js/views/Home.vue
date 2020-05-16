@@ -1,19 +1,19 @@
 <template>
     <div id="Home-Page">
-        <section class="banner-area pb-5">
+        <section class="banner-area pb-2 pb-md-5">
             <banner v-bind:movies="movies"></banner>
             <h2>Upcoming Movies</h2>
         </section>
-        <section class="popularMovies-area p-5 bg-dark text-white">
+        <section class="popularMovies-area p-2 p-md-5 bg-dark text-white">
             <popularMov v-bind:popularMovies="popularMovies"></popularMov>
         </section>
-        <section class="latestMovies-area p-5">
+        <section class="latestMovies-area p-2 p-md-5">
             <latestMovie v-bind:latestMovies="latestMovies"></latestMovie>
         </section>
-        <section class="popularTvShows-area p-5 bg-dark text-white">
+        <section class="popularTvShows-area p-2 p-md-5 bg-dark text-white">
             <popularTVShow v-bind:popularTVShows="popularTVShows"></popularTVShow>
         </section>
-        <section class="airingToday-area p-5">
+        <section class="airingToday-area p-2 p-md-5">
             <airingToday v-bind:airingToday="airingToday"></airingToday>
         </section>
     </div>

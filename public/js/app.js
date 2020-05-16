@@ -2491,9 +2491,6 @@ __webpack_require__.r(__webpack_exports__);
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
         responsive: {
-          0: {
-            items: 2
-          },
           600: {
             items: 4
           },
@@ -2561,9 +2558,6 @@ __webpack_require__.r(__webpack_exports__);
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
         responsive: {
-          0: {
-            items: 2
-          },
           600: {
             items: 4
           },
@@ -7203,7 +7197,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.page-title[data-v-ff3dfcea] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-ff3dfcea] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-ff3dfcea] {\n    padding: 20rem;\n    background-repeat: no-repeat;\n    background-position: top center;\n    background-attachment: fixed;\n    background-size: cover;\n    opacity: 0.5\n}\n", ""]);
+exports.push([module.i, "\n.page-title[data-v-ff3dfcea] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-ff3dfcea] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-ff3dfcea] {\n    opacity: 0.5;\n    max-width: 100%;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -7222,7 +7216,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.page-title[data-v-8937942e] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-8937942e] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-8937942e] {\n    padding: 20rem;\n    background-repeat: no-repeat;\n    background-position: top center;\n    background-attachment: fixed;\n    background-size: cover;\n    opacity: 0.5\n}\n", ""]);
+exports.push([module.i, "\n.page-title[data-v-8937942e] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-8937942e] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-8937942e] {\n    opacity: 0.5;\n    max-width: 100%;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -7317,7 +7311,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.flip[data-v-108802cc] {\n    position: relative;\n}\n.front[data-v-108802cc] {\n    opacity: 1;\n    display: block;\n    width: 100%;\n    height: auto;\n    transition: .5s ease;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n}\n.back[data-v-108802cc] {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n    width: 80%;\n    display: inline-block;\n}\n.flip:hover .front[data-v-108802cc] {\n    opacity: 0.3;\n}\n.flip:hover .back[data-v-108802cc] {\n    opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\n.flip[data-v-108802cc] {\n    position: relative;\n}\n.front[data-v-108802cc] {\n    opacity: 1;\n    display: block;\n    width: 100%;\n    height: auto;\n    transition: .5s ease;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n}\n.back[data-v-108802cc] {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n    width: 80%;\n    display: inline-block;\n    font-size: 1rem;\n}\n.back h3[data-v-108802cc] {\n    font-size: 1rem;\n}\n.flip:hover .front[data-v-108802cc] {\n    opacity: 0.3;\n}\n.flip:hover .back[data-v-108802cc] {\n    opacity: 1;\n}\n@media (min-width: 992px) {\n.back[data-v-108802cc] {\n        font-size: 1.5rem;\n}\n.back h3[data-v-108802cc] {\n        font-size: 1.75rem;\n}\n}\n", ""]);
 
 // exports
 
@@ -39317,15 +39311,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page-wrapper" }, [
-    _c("section", { staticClass: "details-banner pb-5" }, [
+    _c("section", { staticClass: "details-banner pb-2 pb-md-5" }, [
       _c("div", { staticClass: "row bg-dark" }, [
         _c("div", { staticClass: "col-md-12 position-relative" }, [
-          _c("div", {
-            staticClass: "bg-image text-center",
-            style:
-              "background-image:url(https://image.tmdb.org/t/p/original" +
-              _vm.details.backdrop_path +
-              ")"
+          _c("img", {
+            staticClass: "bg-image",
+            attrs: {
+              src:
+                "https://image.tmdb.org/t/p/original" +
+                _vm.details.backdrop_path,
+              alt: _vm.details.name
+            }
           }),
           _vm._v(" "),
           _c("h1", { staticClass: "page-title text-white" }, [
@@ -39335,7 +39331,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("section", { staticClass: "details-content p-5" }, [
+    _c("section", { staticClass: "details-content p-2 p-md-5" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6 d-none d-md-block" }, [
@@ -39468,7 +39464,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("section", { staticClass: "casts-area p-5 bg-dark" }, [
+    _c("section", { staticClass: "casts-area p-2 p-md-5 bg-dark" }, [
       _c("div", { staticClass: "continer-fluid" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
@@ -39536,15 +39532,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page-wrapper" }, [
-    _c("section", { staticClass: "details-banner pb-5" }, [
+    _c("section", { staticClass: "details-banner pb-2 pb-md-5" }, [
       _c("div", { staticClass: "row bg-dark" }, [
         _c("div", { staticClass: "col-md-12 position-relative" }, [
-          _c("div", {
-            staticClass: "bg-image text-center",
-            style:
-              "background-image:url(https://image.tmdb.org/t/p/original" +
-              _vm.details.backdrop_path +
-              ")"
+          _c("img", {
+            staticClass: "bg-image",
+            attrs: {
+              src:
+                "https://image.tmdb.org/t/p/original" +
+                _vm.details.backdrop_path,
+              alt: _vm.details.original_title
+            }
           }),
           _vm._v(" "),
           _c("div", { staticClass: "page-title" }, [
@@ -39564,7 +39562,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("section", { staticClass: "details-content p-5" }, [
+    _c("section", { staticClass: "details-content p-2 p-md-5" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6 d-none d-md-block" }, [
@@ -39666,7 +39664,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("section", { staticClass: "casts-area p-5 bg-dark" }, [
+    _c("section", { staticClass: "casts-area p-2 p-md-5 bg-dark" }, [
       _c("div", { staticClass: "continer-fluid" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
@@ -39795,7 +39793,9 @@ var render = function() {
         [
           _c("h5", [_vm._v(_vm._s(_vm.tv.name))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.tv.overview.slice(0, 70)) + "...")]),
+          _c("p", { staticClass: "d-none d-md-block" }, [
+            _vm._v(_vm._s(_vm.tv.overview.slice(0, 70)) + "...")
+          ]),
           _vm._v(" "),
           _c(
             "router-link",
@@ -39883,7 +39883,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "carousel-caption d-none d-md-block" },
+      { staticClass: "carousel-caption" },
       [
         _c("h2", [_vm._v(" " + _vm._s(_vm.movie.title))]),
         _vm._v(" "),
@@ -39990,7 +39990,9 @@ var render = function() {
         [
           _c("h5", [_vm._v(_vm._s(_vm.movie.title))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.movie.overview.slice(0, 70)) + "...")]),
+          _c("p", { staticClass: "d-none d-md-block" }, [
+            _vm._v(_vm._s(_vm.movie.overview.slice(0, 70)) + "...")
+          ]),
           _vm._v(" "),
           _c(
             "router-link",
@@ -40092,7 +40094,9 @@ var render = function() {
         [
           _c("h3", [_vm._v(_vm._s(_vm.movie.title))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.movie.overview.slice(0, 70)) + "...")]),
+          _c("p", { staticClass: "d-none d-md-block" }, [
+            _vm._v(_vm._s(_vm.movie.overview.slice(0, 70)) + "...")
+          ]),
           _vm._v(" "),
           _c(
             "router-link",
@@ -40150,7 +40154,9 @@ var render = function() {
         [
           _c("h3", [_vm._v(_vm._s(_vm.tv.name))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.tv.overview.slice(0, 70)) + "...")]),
+          _c("p", { staticClass: "d-none d-md-block" }, [
+            _vm._v(_vm._s(_vm.tv.overview.slice(0, 70)) + "...")
+          ]),
           _vm._v(" "),
           _c(
             "router-link",
@@ -40293,7 +40299,7 @@ var render = function() {
   return _c("div", { attrs: { id: "Home-Page" } }, [
     _c(
       "section",
-      { staticClass: "banner-area pb-5" },
+      { staticClass: "banner-area pb-2 pb-md-5" },
       [
         _c("banner", { attrs: { movies: _vm.movies } }),
         _vm._v(" "),
@@ -40304,28 +40310,28 @@ var render = function() {
     _vm._v(" "),
     _c(
       "section",
-      { staticClass: "popularMovies-area p-5 bg-dark text-white" },
+      { staticClass: "popularMovies-area p-2 p-md-5 bg-dark text-white" },
       [_c("popularMov", { attrs: { popularMovies: _vm.popularMovies } })],
       1
     ),
     _vm._v(" "),
     _c(
       "section",
-      { staticClass: "latestMovies-area p-5" },
+      { staticClass: "latestMovies-area p-2 p-md-5" },
       [_c("latestMovie", { attrs: { latestMovies: _vm.latestMovies } })],
       1
     ),
     _vm._v(" "),
     _c(
       "section",
-      { staticClass: "popularTvShows-area p-5 bg-dark text-white" },
+      { staticClass: "popularTvShows-area p-2 p-md-5 bg-dark text-white" },
       [_c("popularTVShow", { attrs: { popularTVShows: _vm.popularTVShows } })],
       1
     ),
     _vm._v(" "),
     _c(
       "section",
-      { staticClass: "airingToday-area p-5" },
+      { staticClass: "airingToday-area p-2 p-md-5" },
       [_c("airingToday", { attrs: { airingToday: _vm.airingToday } })],
       1
     )

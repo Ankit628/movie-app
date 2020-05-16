@@ -16,6 +16,14 @@
     <link href="{{asset('vendor/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owlCarousel/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owlCarousel/owl.theme.green.min.css')}}" rel="stylesheet">
+    <style>
+        img {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 <!-- Page Wrapper -->
@@ -30,10 +38,10 @@
     </div>
     <!-- End of Main Content -->
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
+    <footer class="sticky-footer bg-white p-4">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; <a href="{{env('APP_URL')}}">{{env('APP_NAME')}}</a> <strong>|</strong> {{date('Y')}}</span>
+                <span>Copyright &copy; <a href="{{env('APP_URL')}}">{{env('APP_NAME')}}</a> <strong>|</strong> {{date('Y')}} <strong>|</strong> TheCaesious</span>
             </div>
         </div>
     </footer>

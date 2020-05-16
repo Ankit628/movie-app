@@ -6,7 +6,7 @@
             </div>
             <div class="back">
                 <h3>{{tv.name}}</h3>
-                <p>{{tv.overview.slice(0, 70)}}...</p>
+                <p class="d-none d-md-block">{{tv.overview.slice(0, 70)}}...</p>
                 <router-link v-bind:to="{ name: 'tv-details', params: { id: tv.id } }" class="btn btn-sm btn-secondary">Read more</router-link>
             </div>
         </div>
@@ -44,6 +44,11 @@
         text-align: center;
         width: 80%;
         display: inline-block;
+        font-size: 1rem;
+    }
+
+    .back h3 {
+        font-size: 1rem;
     }
 
     .flip:hover .front {
@@ -52,5 +57,14 @@
 
     .flip:hover .back {
         opacity: 1;
+    }
+
+    @media (min-width: 992px) {
+        .back {
+            font-size: 1.5rem;
+        }
+        .back h3 {
+            font-size: 1.75rem;
+        }
     }
 </style>
