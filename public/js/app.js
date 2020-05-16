@@ -39494,11 +39494,11 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("figcaption", [
-                          _c("h6", [_vm._v(_vm._s(cast.name))]),
+                          _c("h5", [_vm._v(_vm._s(cast.name))]),
                           _vm._v(
                             "\n                                        as\n                                        "
                           ),
-                          _c("h5", [_vm._v(_vm._s(cast.character))])
+                          _c("h6", [_vm._v(_vm._s(cast.character))])
                         ])
                       ])
                     ])
