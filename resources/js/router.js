@@ -5,15 +5,18 @@ import movieDetails from "./views/Details/movieDetails";
 export const routes = [
     {
         path: '/',
+        name: 'home',
         component: Home
     },
     {
-        path: '/details/Tv/:id',
+        path: '/TV/:id',
+        name: 'tv-details',
         component: TVDetails,
         props: true
     },
     {
-        path: '/details/movies/:id',
+        path: '/movie/:id',
+        name: 'movie-details',
         component: movieDetails,
         props: true
     },

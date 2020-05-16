@@ -44,7 +44,6 @@
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('vendor/owlCarousel/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('vendor/flip/flip.min.js')}}"></script>
 <script type="text/javascript">
     @if(Session::has('success'))
     toastr.success('{{Session::get('success')}}');

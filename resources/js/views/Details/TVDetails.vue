@@ -1,10 +1,54 @@
 <template>
-
+    <div id="tvDetails">
+        <tvDetail v-bind:details="Details" v-bind:casts="Casts"/>
+    </div>
 </template>
 
 <script>
+    import axios from 'axios';
+    import tvDetail from '../../components/details/TV/tvDetails'
+
     export default {
-        name: "Details"
+        name: "tvDetails",
+        props: ['id'],
+        components: {
+            tvDetail
+        },
+        data() {
+            return {
+                Details: [],
+                Casts: []
+            }
+        },
+        created() {
+            axios.get('/api/details/tv/' + this.id)
+                .then(res => this.Details = res.data)
+                .catch(err => console.log(err));
+            axios.get('/api/details/tv/' + this.id + '/credits')
+                .then(res => this.Casts = res.data.cast)
+                .catch(err => console.log(err))
+                .then(function () {
+                    jQuery('.owl-tv-casts').owlCarousel({
+                        loop: true,
+                        margin: 20,
+                        autoplay: true,
+                        autoplayTimeout: 5000,
+                        autoplayHoverPause: true,
+                        animateOut: 'fadeOut',
+                        responsive: {
+                            0: {
+                                items: 2
+                            },
+                            600: {
+                                items: 4
+                            },
+                            1000: {
+                                items: 6
+                            }
+                        }
+                    });
+                });
+        },
     }
 </script>
 

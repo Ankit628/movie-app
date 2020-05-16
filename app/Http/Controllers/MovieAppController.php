@@ -81,9 +81,10 @@ class MovieAppController extends Controller
     public function tvDetails($id)
     {
         return Http::withToken(config('services.tmbd.api_key'))
-            ->get(`https://api.themoviedb.org/3/tv/$id`)
+            ->get('https://api.themoviedb.org/3/tv/' . $id)
             ->json();
     }
+
     /**
      * @param $id
      * @return array
@@ -91,7 +92,29 @@ class MovieAppController extends Controller
     public function movieDetails($id)
     {
         return Http::withToken(config('services.tmbd.api_key'))
-            ->get(`https://api.themoviedb.org/3/movie/$id`)
+            ->get('https://api.themoviedb.org/3/movie/' . $id)
+            ->json();
+    }
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function tvDetailCredits($id)
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/tv/' . $id . '/credits')
+            ->json();
+    }
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function movieDetailCredits($id)
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/movie/' . $id . '/credits')
             ->json();
     }
 }

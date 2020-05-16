@@ -7,7 +7,7 @@
             <div class="back">
                 <h5>{{tv.name}}</h5>
                 <p>{{tv.overview.slice(0, 70)}}...</p>
-                <router-link v-bind:to="'/details/tv/'+tv.id" class="btn btn-sm btn-secondary">Read more</router-link>
+                <router-link v-bind:to="{ name: 'tv-details', params: { id: tv.id } }" class="btn btn-sm btn-secondary">Read more</router-link>
             </div>
         </div>
     </div>

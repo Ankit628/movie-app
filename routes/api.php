@@ -25,5 +25,9 @@ Route::get('/airingToday', 'MovieAppController@airingToday');
 
 
 /*Details*/
-Route::get('details/tv/{id}','MovieAppController@tvDetails');
-Route::get('details/movie/{id}','MovieAppController@movieDetails');
+Route::get('details/tv/{id}', 'MovieAppController@tvDetails');
+Route::get('details/movie/{id}', 'MovieAppController@movieDetails');
+
+/*Credits*/
+Route::get('details/tv/{id}/credits', 'MovieAppController@tvDetailCredits');
+Route::get('details/movie/{id}/credits', 'MovieAppController@movieDetailCredits');
