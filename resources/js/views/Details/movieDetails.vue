@@ -1,10 +1,19 @@
 <template>
+<div id="TVdetails">
 
+</div>
 </template>
 
 <script>
+
     export default {
-        name: "movieDetails"
+        name: "movieDetails",
+        components: {},
+        data() {
+            return {
+                Details: []
+            }
+        }
     }
 </script>
 

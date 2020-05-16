@@ -9,10 +9,12 @@ export const routes = [
     },
     {
         path: '/details/Tv/:id',
-        component: TVDetails
+        component: TVDetails,
+        props: true
     },
     {
         path: '/details/movies/:id',
-        component: movieDetails
+        component: movieDetails,
+        props: true
     },
 ];

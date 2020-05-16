@@ -2274,8 +2274,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "movieDetails"
+  name: "movieDetails",
+  components: {},
+  data: function data() {
+    return {
+      Details: []
+    };
+  }
 });
 
 /***/ }),
@@ -39437,7 +39445,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { attrs: { id: "TVdetails" } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -55550,10 +55558,12 @@ var routes = [{
   component: _views_Home__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/details/Tv/:id',
-  component: _views_Details_TVDetails__WEBPACK_IMPORTED_MODULE_1__["default"]
+  component: _views_Details_TVDetails__WEBPACK_IMPORTED_MODULE_1__["default"],
+  props: true
 }, {
   path: '/details/movies/:id',
-  component: _views_Details_movieDetails__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _views_Details_movieDetails__WEBPACK_IMPORTED_MODULE_2__["default"],
+  props: true
 }];
 
 /***/ }),

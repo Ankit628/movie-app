@@ -84,4 +84,14 @@ class MovieAppController extends Controller
             ->get(`https://api.themoviedb.org/3/tv/$id`)
             ->json();
     }
+    /**
+     * @param $id
+     * @return array
+     */
+    public function movieDetails($id)
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get(`https://api.themoviedb.org/3/movie/$id`)
+            ->json();
+    }
 }
