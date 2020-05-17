@@ -2025,9 +2025,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "tvDetails",
-  props: ['details', 'casts']
+  props: ['details', 'casts', 'similars']
 });
 
 /***/ }),
@@ -2121,9 +2146,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "movieDetails",
-  props: ['details', 'casts']
+  props: ['details', 'casts', 'similars']
 });
 
 /***/ }),
@@ -2538,45 +2588,84 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       Details: [],
-      Casts: []
+      Casts: [],
+      Similars: [],
+      componentKey: 0
     };
   },
-  mounted: function mounted() {
-    $('#wrapper').css('opacity', '0');
-    Pace.restart();
-  },
   created: function created() {
-    var _this = this;
+    this.fetchData(this.id);
+  },
+  watch: {
+    $route: function $route(to, from) {
+      this.fetchData(to.params.id);
+      this.componentKey += 1;
+    }
+  },
+  methods: {
+    fetchData: function fetchData(id) {
+      var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/tv/' + this.id).then(function (res) {
-      return _this.Details = res.data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/tv/' + this.id + '/credits').then(function (res) {
-      return _this.Casts = res.data.cast;
-    })["catch"](function (err) {
-      return console.log(err);
-    }).then(function () {
-      jQuery('.owl-tv-casts').owlCarousel({
-        loop: true,
-        margin: 20,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        animateOut: 'fadeOut',
-        dots: false,
-        responsive: {
-          600: {
-            dots: true,
-            items: 4
-          },
-          1000: {
-            items: 6
-          }
-        }
+      $('#wrapper').css('opacity', '0');
+      Pace.restart();
+      document.body.scrollTop = 0; // For Safari
+
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/tv/' + id).then(function (res) {
+        return _this.Details = res.data;
+      })["catch"](function (err) {
+        return console.log(err);
       });
-    });
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/tv/' + id + '/credits').then(function (res) {
+        return _this.Casts = res.data.cast;
+      })["catch"](function (err) {
+        return console.log(err);
+      }).then(function () {
+        jQuery('.owl-tv-casts').owlCarousel({
+          loop: true,
+          margin: 20,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          animateOut: 'fadeOut',
+          dots: false,
+          responsive: {
+            600: {
+              dots: true,
+              items: 4
+            },
+            1000: {
+              items: 6
+            }
+          }
+        });
+      });
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/similar/tv/' + id).then(function (res) {
+        return _this.Similars = res.data.results;
+      })["catch"](function (err) {
+        return console.log(err);
+      }).then(function () {
+        jQuery('.owl-tv-similar').owlCarousel({
+          loop: true,
+          margin: 20,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          animateOut: 'fadeOut',
+          dots: false,
+          responsive: {
+            600: {
+              dots: true,
+              items: 4
+            },
+            1000: {
+              items: 6
+            }
+          }
+        });
+      });
+    }
   }
 });
 
@@ -2611,45 +2700,84 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       Details: [],
-      Casts: []
+      Casts: [],
+      Similars: [],
+      componentKey: 0
     };
   },
-  mounted: function mounted() {
-    $('#wrapper').css('opacity', '0');
-    Pace.restart();
-  },
   created: function created() {
-    var _this = this;
+    this.fetchData(this.id);
+  },
+  watch: {
+    $route: function $route(to, from) {
+      this.fetchData(to.params.id);
+      this.componentKey += 1;
+    }
+  },
+  methods: {
+    fetchData: function fetchData(id) {
+      var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/movie/' + this.id).then(function (res) {
-      return _this.Details = res.data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/movie/' + this.id + '/credits').then(function (res) {
-      return _this.Casts = res.data.cast;
-    })["catch"](function (err) {
-      return console.log(err);
-    }).then(function () {
-      jQuery('.owl-movie-casts').owlCarousel({
-        loop: true,
-        margin: 20,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        animateOut: 'fadeOut',
-        dots: false,
-        responsive: {
-          600: {
-            dots: true,
-            items: 4
-          },
-          1000: {
-            items: 6
-          }
-        }
+      $('#wrapper').css('opacity', '0');
+      Pace.restart();
+      document.body.scrollTop = 0; // For Safari
+
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/movie/' + id).then(function (res) {
+        return _this.Details = res.data;
+      })["catch"](function (err) {
+        return console.log(err);
       });
-    });
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/details/movie/' + id + '/credits').then(function (res) {
+        return _this.Casts = res.data.cast;
+      })["catch"](function (err) {
+        return console.log(err);
+      }).then(function () {
+        jQuery('.owl-movie-casts').owlCarousel({
+          loop: true,
+          margin: 20,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          animateOut: 'fadeOut',
+          dots: false,
+          responsive: {
+            600: {
+              dots: true,
+              items: 4
+            },
+            1000: {
+              items: 6
+            }
+          }
+        });
+      });
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/similar/movie/' + id).then(function (res) {
+        return _this.Similars = res.data.results;
+      })["catch"](function (err) {
+        return console.log(err);
+      }).then(function () {
+        jQuery('.owl-movie-similar').owlCarousel({
+          loop: true,
+          margin: 20,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          animateOut: 'fadeOut',
+          dots: false,
+          responsive: {
+            600: {
+              dots: true,
+              items: 4
+            },
+            1000: {
+              items: 6
+            }
+          }
+        });
+      });
+    }
   }
 });
 
@@ -7285,7 +7413,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.page-title[data-v-ff3dfcea] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-ff3dfcea] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-ff3dfcea] {\n    opacity: 0.5;\n    max-width: 100%;\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.page-title[data-v-ff3dfcea] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-ff3dfcea] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-ff3dfcea] {\n    opacity: 0.5;\n    max-width: 100%;\n    width: 100%;\n}\n.flip[data-v-ff3dfcea] {\n    position: relative;\n}\n.front[data-v-ff3dfcea] {\n    opacity: 1;\n    display: block;\n    width: 100%;\n    height: auto;\n    transition: .5s ease;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n}\n.back[data-v-ff3dfcea] {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n    width: 80%;\n    display: inline-block;\n}\n.flip:hover .front[data-v-ff3dfcea] {\n    opacity: 0.3;\n}\n.flip:hover .back[data-v-ff3dfcea] {\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -7304,7 +7432,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.page-title[data-v-8937942e] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-8937942e] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-8937942e] {\n    opacity: 0.5;\n    max-width: 100%;\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.page-title[data-v-8937942e] {\n    position: absolute;\n    display: inline-block;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n    text-align: center;\n}\n@media (min-width: 992px) {\nh1[data-v-8937942e] {\n        font-size: 80px;\n}\n}\n.bg-image[data-v-8937942e] {\n    opacity: 0.5;\n    max-width: 100%;\n    width: 100%;\n}\n.flip[data-v-8937942e] {\n    position: relative;\n}\n.front[data-v-8937942e] {\n    opacity: 1;\n    display: block;\n    width: 100%;\n    height: auto;\n    transition: .5s ease;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n}\n.back[data-v-8937942e] {\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n    width: 80%;\n    display: inline-block;\n}\n.flip:hover .front[data-v-8937942e] {\n    opacity: 0.3;\n}\n.flip:hover .back[data-v-8937942e] {\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -39564,7 +39692,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("section", { staticClass: "casts-area p-2 p-md-5 bg-dark" }, [
-      _c("div", { staticClass: "continer-fluid" }, [
+      _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("h2", { staticClass: "mb-3 text-white" }, [_vm._v("Cast")]),
@@ -39595,6 +39723,76 @@ var render = function() {
                           ),
                           _c("p", [_vm._v(_vm._s(cast.character))])
                         ])
+                      ])
+                    ])
+                  ]
+                )
+              }),
+              0
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "similar-tv-area p-2 p-md-5" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("h2", { staticClass: "mb-3 text-dark" }, [
+              _vm._v("Similar Movies")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "owl-tv-similar owl-carousel owl-theme" },
+              _vm._l(_vm.similars, function(similar) {
+                return _c(
+                  "div",
+                  { key: similar.id, staticClass: "owl-carousel-item" },
+                  [
+                    _c("div", { staticClass: "item" }, [
+                      _c("div", { staticClass: "flip" }, [
+                        _c("div", { staticClass: "front" }, [
+                          _c("img", {
+                            staticClass: "d-block w-100",
+                            attrs: {
+                              src:
+                                "https://image.tmdb.org/t/p/h632" +
+                                similar.poster_path,
+                              alt: similar.name
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "back" },
+                          [
+                            _c("h5", [_vm._v(_vm._s(similar.name))]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "d-none d-md-block" }, [
+                              _vm._v(
+                                _vm._s(similar.overview.slice(0, 70)) + "..."
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-sm btn-secondary",
+                                attrs: {
+                                  to: {
+                                    name: "tv-details",
+                                    params: { id: similar.id }
+                                  }
+                                }
+                              },
+                              [_vm._v("Read more")]
+                            )
+                          ],
+                          1
+                        )
                       ])
                     ])
                   ]
@@ -39764,7 +39962,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("section", { staticClass: "casts-area p-2 p-md-5 bg-dark" }, [
-      _c("div", { staticClass: "continer-fluid" }, [
+      _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("h2", { staticClass: "mb-3 text-white" }, [_vm._v("Cast")]),
@@ -39775,14 +39973,14 @@ var render = function() {
               _vm._l(_vm.casts, function(cast) {
                 return _c(
                   "div",
-                  { key: cast.id, staticClass: "owl-carousel-item" },
+                  { key: cast.key, staticClass: "owl-carousel-item" },
                   [
                     _c("div", { staticClass: "item" }, [
                       _c("figure", { staticClass: "text-center text-white" }, [
                         _c("img", {
                           attrs: {
                             src:
-                              "https://image.tmdb.org/t/p/w185" +
+                              "https://image.tmdb.org/t/p/h632" +
                               cast.profile_path,
                             alt: cast.name
                           }
@@ -39795,6 +39993,76 @@ var render = function() {
                           ),
                           _c("p", [_vm._v(_vm._s(cast.character))])
                         ])
+                      ])
+                    ])
+                  ]
+                )
+              }),
+              0
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "similar-movies-area p-2 p-md-5" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("h2", { staticClass: "mb-3 text-dark" }, [
+              _vm._v("Similar Movies")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "owl-movie-similar owl-carousel owl-theme" },
+              _vm._l(_vm.similars, function(similar) {
+                return _c(
+                  "div",
+                  { key: similar.key, staticClass: "owl-carousel-item" },
+                  [
+                    _c("div", { staticClass: "item" }, [
+                      _c("div", { staticClass: "flip" }, [
+                        _c("div", { staticClass: "front" }, [
+                          _c("img", {
+                            staticClass: "d-block w-100",
+                            attrs: {
+                              src:
+                                "https://image.tmdb.org/t/p/w342" +
+                                similar.poster_path,
+                              alt: similar.name
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "back" },
+                          [
+                            _c("h5", [_vm._v(_vm._s(similar.name))]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "d-none d-md-block" }, [
+                              _vm._v(
+                                _vm._s(similar.overview.slice(0, 70)) + "..."
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-sm btn-secondary",
+                                attrs: {
+                                  to: {
+                                    name: "movie-details",
+                                    params: { id: similar.id }
+                                  }
+                                }
+                              },
+                              [_vm._v("Read more")]
+                            )
+                          ],
+                          1
+                        )
                       ])
                     ])
                   ]
@@ -40428,7 +40696,16 @@ var render = function() {
   return _c(
     "div",
     { attrs: { id: "tvDetails" } },
-    [_c("tvDetail", { attrs: { details: _vm.Details, casts: _vm.Casts } })],
+    [
+      _c("tvDetail", {
+        key: _vm.componentKey,
+        attrs: {
+          details: _vm.Details,
+          casts: _vm.Casts,
+          similars: _vm.Similars
+        }
+      })
+    ],
     1
   )
 }
@@ -40457,7 +40734,16 @@ var render = function() {
   return _c(
     "div",
     { attrs: { id: "movieDetails" } },
-    [_c("movieDetail", { attrs: { details: _vm.Details, casts: _vm.Casts } })],
+    [
+      _c("movieDetail", {
+        key: _vm.componentKey,
+        attrs: {
+          details: _vm.Details,
+          casts: _vm.Casts,
+          similars: _vm.Similars
+        }
+      })
+    ],
     1
   )
 }

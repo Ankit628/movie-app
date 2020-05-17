@@ -53,15 +53,15 @@
             </div>
         </section>
         <section class="casts-area p-2 p-md-5 bg-dark">
-            <div class="continer-fluid">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="mb-3 text-white">Cast</h2>
                         <div class="owl-movie-casts owl-carousel owl-theme">
-                            <div class="owl-carousel-item" v-bind:key="cast.id" v-for="cast in casts">
+                            <div class="owl-carousel-item" v-bind:key="cast.key" v-for="cast in casts">
                                 <div class="item">
                                     <figure class="text-center text-white">
-                                        <img v-bind:src="'https://image.tmdb.org/t/p/w185'+cast.profile_path" v-bind:alt="cast.name">
+                                        <img v-bind:src="'https://image.tmdb.org/t/p/h632'+cast.profile_path" v-bind:alt="cast.name">
                                         <figcaption>
                                             <h5>{{cast.name}}</h5>
                                             as
@@ -75,13 +75,38 @@
                 </div>
             </div>
         </section>
+        <section class="similar-movies-area p-2 p-md-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="mb-3 text-dark">Similar Movies</h2>
+                        <div class="owl-movie-similar owl-carousel owl-theme">
+                            <div class="owl-carousel-item" v-bind:key="similar.key" v-for="similar in similars">
+                                <div class="item">
+                                    <div class="flip">
+                                        <div class="front">
+                                            <img class="d-block w-100" v-bind:src="'https://image.tmdb.org/t/p/w342'+similar.poster_path" v-bind:alt="similar.name">
+                                        </div>
+                                        <div class="back">
+                                            <h5>{{similar.name}}</h5>
+                                            <p class="d-none d-md-block">{{similar.overview.slice(0, 70)}}...</p>
+                                            <router-link v-bind:to="{ name: 'movie-details', params: { id: similar.id } }" class="btn btn-sm btn-secondary">Read more</router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </template>
 
 <script>
     export default {
         name: "movieDetails",
-        props: ['details', 'casts']
+        props: ['details', 'casts', 'similars'],
     }
 </script>
 
@@ -106,5 +131,39 @@
         opacity: 0.5;
         max-width: 100%;
         width: 100%;
+    }
+
+    .flip {
+        position: relative;
+    }
+
+    .front {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+
+    .back {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        width: 80%;
+        display: inline-block;
+    }
+
+    .flip:hover .front {
+        opacity: 0.3;
+    }
+
+    .flip:hover .back {
+        opacity: 1;
     }
 </style>

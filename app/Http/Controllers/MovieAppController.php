@@ -117,4 +117,26 @@ class MovieAppController extends Controller
             ->get('https://api.themoviedb.org/3/movie/' . $id . '/credits')
             ->json();
     }
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function tvSimilar($id)
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/tv/' . $id . '/similar')
+            ->json();
+    }
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function movieSimilar($id)
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/movie/' . $id . '/similar')
+            ->json();
+    }
 }
