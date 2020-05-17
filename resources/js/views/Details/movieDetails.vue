@@ -20,6 +20,10 @@
                 Casts: []
             }
         },
+        mounted() {
+            $('#wrapper').css('opacity', '0');
+            Pace.restart();
+        },
         created() {
             axios.get('/api/details/movie/' + this.id)
                 .then(res => this.Details = res.data)

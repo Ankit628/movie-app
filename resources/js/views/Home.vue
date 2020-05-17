@@ -53,12 +53,7 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         items: 1,
-                        dots: false,
-                        responsive: {
-                            600: {
-                                dots: true
-                            },
-                        }
+                        dots: false
                     });
                 });
             axios.get('/api/popularMovies')

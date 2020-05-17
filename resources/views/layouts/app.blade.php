@@ -16,12 +16,18 @@
     <link href="{{asset('vendor/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owlCarousel/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owlCarousel/owl.theme.green.min.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/pace/pace.css')}}" rel="stylesheet">
     <style>
         img {
             width: 100%;
             max-width: 100%;
             margin: 0;
             padding: 0;
+        }
+
+        #wrapper {
+            opacity: 0;
+            transition: opacity fade 0.2s;
         }
     </style>
 </head>
@@ -33,10 +39,15 @@
 </div>
 <!-- End of Page Wrapper -->
 <script src="{{asset('vendor/jQuery/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset('vendor/pace/pace.min.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
-<script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('vendor/owlCarousel/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('vendor/toastr/toastr.min.js')}}"></script>
+<script type="text/javascript">
+    Pace.on('done', function () {
+        $('#wrapper').css('opacity', '1');
+    });
+</script>
 <script type="text/javascript">
     @if(Session::has('success'))
     toastr.success('{{Session::get('success')}}');

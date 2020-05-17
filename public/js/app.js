@@ -2177,6 +2177,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PageHeader"
 });
@@ -2539,6 +2541,10 @@ __webpack_require__.r(__webpack_exports__);
       Casts: []
     };
   },
+  mounted: function mounted() {
+    $('#wrapper').css('opacity', '0');
+    Pace.restart();
+  },
   created: function created() {
     var _this = this;
 
@@ -2605,6 +2611,10 @@ __webpack_require__.r(__webpack_exports__);
       Details: [],
       Casts: []
     };
+  },
+  mounted: function mounted() {
+    $('#wrapper').css('opacity', '0');
+    Pace.restart();
   },
   created: function created() {
     var _this = this;
@@ -2717,12 +2727,7 @@ __webpack_require__.r(__webpack_exports__);
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
         items: 1,
-        dots: false,
-        responsive: {
-          600: {
-            dots: true
-          }
-        }
+        dots: false
       });
     });
     axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/popularMovies').then(function (res) {
@@ -39863,18 +39868,20 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "sticky-top bg-dark" }, [
     _c("div", { staticClass: "container" }, [
-      _c(
-        "nav",
-        { staticClass: "navbar navbar-expand-lg" },
-        [
-          _c("router-link", { attrs: { to: "/" } }, [
-            _c("h2", { staticClass: "text-success" }, [
-              _vm._v("The Movies App")
-            ])
-          ])
-        ],
-        1
-      )
+      _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
+        _c(
+          "h2",
+          { staticClass: "text-center w-100" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "text-success", attrs: { to: "/" } },
+              [_vm._v("\n                    The Movies App\n                ")]
+            )
+          ],
+          1
+        )
+      ])
     ])
   ])
 }
