@@ -39,8 +39,10 @@
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
+                        dots: false,
                         responsive: {
                             600: {
+                                dots: true,
                                 items: 4
                             },
                             1000: {

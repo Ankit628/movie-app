@@ -2565,8 +2565,10 @@ __webpack_require__.r(__webpack_exports__);
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
+        dots: false,
         responsive: {
           600: {
+            dots: true,
             items: 4
           },
           1000: {
@@ -2636,8 +2638,10 @@ __webpack_require__.r(__webpack_exports__);
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
+        dots: false,
         responsive: {
           600: {
+            dots: true,
             items: 4
           },
           1000: {
