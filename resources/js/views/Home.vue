@@ -1,6 +1,6 @@
 <template>
     <div id="Home-Page">
-        <section class="banner-area pb-2 pb-md-5">
+        <section class="banner-area">
             <banner v-bind:movies="movies"></banner>
             <h2>Upcoming Movies</h2>
         </section>
@@ -53,6 +53,12 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         items: 1,
+                        dots: false,
+                        responsive: {
+                            600: {
+                                dots: true
+                            },
+                        }
                     });
                 });
             axios.get('/api/popularMovies')
@@ -161,17 +167,27 @@
     }
 
     .banner-area h2 {
+        top: 20px;
+        left: 20px;
         position: absolute;
-        top: 30px;
-        left: 50px;
         color: #fff;
         z-index: 100;
-        font-size: 40px;
+        font-size: 1.2rem
+    }
+
+    @media (min-width: 512px) {
+        .banner-area h2 {
+            top: 20px;
+            left: 30px;
+            font-size: 2rem;
+        }
     }
 
     @media (min-width: 992px) {
         .banner-area h2 {
-            font-size: 80px;
+            top: 30px;
+            left: 50px;
+            font-size: 5rem;
         }
     }
 </style>

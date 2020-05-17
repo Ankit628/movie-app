@@ -44,11 +44,6 @@
         text-align: center;
         width: 80%;
         display: inline-block;
-        font-size: 1rem;
-    }
-
-    .back h3 {
-        font-size: 1rem;
     }
 
     .flip:hover .front {
@@ -57,14 +52,5 @@
 
     .flip:hover .back {
         opacity: 1;
-    }
-
-    @media (min-width: 992px) {
-        .back {
-            font-size: 1.5rem;
-        }
-        .back h3 {
-            font-size: 1.75rem;
-        }
     }
 </style>

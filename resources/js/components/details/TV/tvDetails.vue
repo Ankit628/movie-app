@@ -69,7 +69,7 @@
                                         <figcaption>
                                             <h5>{{cast.name}}</h5>
                                             as
-                                            <h6>{{cast.character}}</h6>
+                                            <p>{{cast.character}}</p>
                                         </figcaption>
                                     </figure>
                                 </div>

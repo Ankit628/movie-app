@@ -28,30 +28,15 @@
 <body>
 <!-- Page Wrapper -->
 <div id="wrapper">
-    <!-- Header -->
-@include('errors.error-lists')
-@include('layouts.nav')
-<!-- End Header -->
-    <!-- Main Content -->
-    <div id="content">
-        <div id="app"></div>
-    </div>
-    <!-- End of Main Content -->
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white p-4">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; <a href="{{env('APP_URL')}}">{{env('APP_NAME')}}</a> <strong>|</strong> {{date('Y')}} <strong>|</strong> TheCaesious</span>
-            </div>
-        </div>
-    </footer>
-    <!-- End of Footer -->
+    @include('errors.error-lists')
+    <div id="app"></div>
 </div>
 <!-- End of Page Wrapper -->
 <script src="{{asset('vendor/jQuery/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('vendor/owlCarousel/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('vendor/toastr/toastr.min.js')}}"></script>
 <script type="text/javascript">
     @if(Session::has('success'))
     toastr.success('{{Session::get('success')}}');

@@ -63,9 +63,9 @@
                                     <figure class="text-center text-white">
                                         <img v-bind:src="'https://image.tmdb.org/t/p/w185'+cast.profile_path" v-bind:alt="cast.name">
                                         <figcaption>
-                                            <h6>{{cast.name}}</h6>
+                                            <h5>{{cast.name}}</h5>
                                             as
-                                            <h5>{{cast.character}}</h5>
+                                            <p>{{cast.character}}</p>
                                         </figcaption>
                                     </figure>
                                 </div>
