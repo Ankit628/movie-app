@@ -2716,6 +2716,10 @@ __webpack_require__.r(__webpack_exports__);
       airingToday: []
     };
   },
+  mounted: function mounted() {
+    $('#wrapper').css('opacity', '0');
+    Pace.restart();
+  },
   created: function created() {
     var _this = this;
 

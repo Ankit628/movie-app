@@ -41,6 +41,10 @@
                 airingToday: []
             }
         },
+        mounted() {
+            $('#wrapper').css('opacity', '0');
+            Pace.restart();
+        },
         created() {
             axios.get('/api/upcomingMovies')
                 .then(res => this.movies = res.data.results)
