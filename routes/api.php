@@ -33,3 +33,6 @@ Route::get('similar/movie/{id}', 'MovieAppController@movieSimilar');
 /*Credits*/
 Route::get('details/tv/{id}/credits', 'MovieAppController@tvDetailCredits');
 Route::get('details/movie/{id}/credits', 'MovieAppController@movieDetailCredits');
+
+/*Search*/
+Route::get('search/{slug}', 'MovieAppController@search');

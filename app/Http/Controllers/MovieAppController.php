@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
 
 class MovieAppController extends Controller
@@ -137,6 +139,19 @@ class MovieAppController extends Controller
     {
         return Http::withToken(config('services.tmbd.api_key'))
             ->get('https://api.themoviedb.org/3/movie/' . $id . '/similar')
+            ->json();
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function search($slug)
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/search/multi', [
+                'query' => $slug
+            ])
             ->json();
     }
 }

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10931,5 +10931,56 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  opacity: 0;
+  transition: opacity ease-in-out 0.2s;
+}
+
+/*slider flips*/
+
+.flip {
+  position: relative;
+}
+
+.flip:hover .front {
+  opacity: 0.3;
+}
+
+.flip:hover .back {
+  opacity: 1;
+}
+
+.front {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity ease-in-out 0.5s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.back {
+  transition: opacity ease-in-out 0.5s;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
+  display: inline-block;
+  cursor: pointer;
 }
 

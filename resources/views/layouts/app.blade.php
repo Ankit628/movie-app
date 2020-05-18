@@ -11,25 +11,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{env('APP_NAME')}} | The Caesious </title>
     <!--bootstrap for this template-->
-    <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!--toastr for this template-->
     <link href="{{asset('vendor/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owlCarousel/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owlCarousel/owl.theme.green.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/pace/pace.css')}}" rel="stylesheet">
-    <style>
-        img {
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        #wrapper {
-            opacity: 0;
-            transition: opacity fade 0.2s;
-        }
-    </style>
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
 <body>
 <!-- Page Wrapper -->

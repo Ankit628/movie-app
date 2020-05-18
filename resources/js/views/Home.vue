@@ -54,10 +54,11 @@
                         loop: true,
                         autoplay: true,
                         autoplayTimeout: 5000,
-                        autoplayHoverPause: true,
+                        autoplayHoverPause: false,
                         animateOut: 'fadeOut',
                         items: 1,
-                        dots: false
+                        dots: false,
+                        autoHeight: true
                     });
                 });
             axios.get('/api/popularMovies')
@@ -71,6 +72,7 @@
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
+                        autoHeight: true,
                         responsive: {
                             0: {
                                 items: 3
@@ -95,6 +97,7 @@
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
+                        autoHeight: true,
                         responsive: {
                             0: {
                                 items: 3
@@ -119,6 +122,7 @@
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
+                        autoHeight: true,
                         responsive: {
                             0: {
                                 items: 3
@@ -143,6 +147,7 @@
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
+                        autoHeight: true,
                         responsive: {
                             0: {
                                 items: 3

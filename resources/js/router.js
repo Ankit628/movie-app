@@ -1,6 +1,7 @@
 import Home from './views/Home'
 import TVDetails from "./views/Details/TVDetails";
 import movieDetails from "./views/Details/movieDetails";
+import Search from "./views/Search";
 
 export const routes = [
     {
@@ -18,6 +19,11 @@ export const routes = [
         path: '/movie/:id',
         name: 'movie-details',
         component: movieDetails,
+        props: true
+    }, {
+        path: '/search/:search',
+        name: 'Search',
+        component: Search,
         props: true
     },
 ];
