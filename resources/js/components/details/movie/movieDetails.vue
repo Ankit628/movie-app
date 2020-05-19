@@ -83,16 +83,17 @@
                         <div class="owl-movie-similar owl-carousel owl-theme">
                             <div class="owl-carousel-item" v-bind:key="similar.key" v-for="similar in similars">
                                 <div class="item">
-                                    <div class="flip">
-                                        <div class="front">
-                                            <img class="d-block w-100" v-bind:src="'https://image.tmdb.org/t/p/w342'+similar.poster_path" v-bind:alt="similar.name">
+                                    <router-link v-bind:to="{ name: 'movie-details', params: { id: similar.id } }">
+                                        <div class="flip">
+                                            <div class="front">
+                                                <img class="d-block w-100" v-bind:src="'https://image.tmdb.org/t/p/w342'+similar.poster_path" v-bind:alt="similar.name">
+                                            </div>
+                                            <div class="back">
+                                                <h5>{{similar.name}}</h5>
+                                                <p class="d-none d-md-block">{{similar.overview.slice(0, 70)}}...</p>
+                                            </div>
                                         </div>
-                                        <div class="back">
-                                            <h5>{{similar.name}}</h5>
-                                            <p class="d-none d-md-block">{{similar.overview.slice(0, 70)}}...</p>
-                                            <router-link v-bind:to="{ name: 'movie-details', params: { id: similar.id } }" class="btn btn-sm btn-secondary">Read more</router-link>
-                                        </div>
-                                    </div>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>

@@ -2050,6 +2050,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "tvDetails",
   props: ['details', 'casts', 'similars']
@@ -2066,6 +2067,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -39923,50 +39925,50 @@ var render = function() {
                   "div",
                   { key: similar.id, staticClass: "owl-carousel-item" },
                   [
-                    _c("div", { staticClass: "item" }, [
-                      _c("div", { staticClass: "flip" }, [
-                        _c("div", { staticClass: "front" }, [
-                          _c("img", {
-                            staticClass: "d-block w-100",
-                            attrs: {
-                              src:
-                                "https://image.tmdb.org/t/p/h632" +
-                                similar.poster_path,
-                              alt: similar.name
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "item" },
+                      [
                         _c(
-                          "div",
-                          { staticClass: "back" },
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "tv-details",
+                                params: { id: similar.id }
+                              }
+                            }
+                          },
                           [
-                            _c("h5", [_vm._v(_vm._s(similar.name))]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "d-none d-md-block" }, [
-                              _vm._v(
-                                _vm._s(similar.overview.slice(0, 70)) + "..."
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-sm btn-secondary",
-                                attrs: {
-                                  to: {
-                                    name: "tv-details",
-                                    params: { id: similar.id }
+                            _c("div", { staticClass: "flip" }, [
+                              _c("div", { staticClass: "front" }, [
+                                _c("img", {
+                                  staticClass: "d-block w-100",
+                                  attrs: {
+                                    src:
+                                      "https://image.tmdb.org/t/p/h632" +
+                                      similar.poster_path,
+                                    alt: similar.name
                                   }
-                                }
-                              },
-                              [_vm._v("Read more")]
-                            )
-                          ],
-                          1
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "back" }, [
+                                _c("h5", [_vm._v(_vm._s(similar.name))]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "d-none d-md-block" }, [
+                                  _vm._v(
+                                    _vm._s(similar.overview.slice(0, 70)) +
+                                      "..."
+                                  )
+                                ])
+                              ])
+                            ])
+                          ]
                         )
-                      ])
-                    ])
+                      ],
+                      1
+                    )
                   ]
                 )
               }),
@@ -40193,50 +40195,50 @@ var render = function() {
                   "div",
                   { key: similar.key, staticClass: "owl-carousel-item" },
                   [
-                    _c("div", { staticClass: "item" }, [
-                      _c("div", { staticClass: "flip" }, [
-                        _c("div", { staticClass: "front" }, [
-                          _c("img", {
-                            staticClass: "d-block w-100",
-                            attrs: {
-                              src:
-                                "https://image.tmdb.org/t/p/w342" +
-                                similar.poster_path,
-                              alt: similar.name
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "item" },
+                      [
                         _c(
-                          "div",
-                          { staticClass: "back" },
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "movie-details",
+                                params: { id: similar.id }
+                              }
+                            }
+                          },
                           [
-                            _c("h5", [_vm._v(_vm._s(similar.name))]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "d-none d-md-block" }, [
-                              _vm._v(
-                                _vm._s(similar.overview.slice(0, 70)) + "..."
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-sm btn-secondary",
-                                attrs: {
-                                  to: {
-                                    name: "movie-details",
-                                    params: { id: similar.id }
+                            _c("div", { staticClass: "flip" }, [
+                              _c("div", { staticClass: "front" }, [
+                                _c("img", {
+                                  staticClass: "d-block w-100",
+                                  attrs: {
+                                    src:
+                                      "https://image.tmdb.org/t/p/w342" +
+                                      similar.poster_path,
+                                    alt: similar.name
                                   }
-                                }
-                              },
-                              [_vm._v("Read more")]
-                            )
-                          ],
-                          1
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "back" }, [
+                                _c("h5", [_vm._v(_vm._s(similar.name))]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "d-none d-md-block" }, [
+                                  _vm._v(
+                                    _vm._s(similar.overview.slice(0, 70)) +
+                                      "..."
+                                  )
+                                ])
+                              ])
+                            ])
+                          ]
                         )
-                      ])
-                    ])
+                      ],
+                      1
+                    )
                   ]
                 )
               }),
