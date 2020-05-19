@@ -23,13 +23,13 @@ export const routes = [
         props: true
     },
     {
-        path: '/search/:search',
+        path: '/search/:search/:page',
         name: 'Search',
         component: Search,
         props: true
     },
     {
-        path: '/more/:type',
+        path: '/more/:type/:page',
         name: 'more',
         component: viewMore,
         props: true

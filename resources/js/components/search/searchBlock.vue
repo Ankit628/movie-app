@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4 col-sm-4 col-md-3 p-1 p-md-3" v-bind:key="search.id" v-for="search in searches">
-                <div class="item">
+                <div class="item bg-dark text-white">
                     <div class="flip">
                         <div class="front">
                             <img class="d-block w-100" v-bind:src="'https://image.tmdb.org/t/p/w342'+search.poster_path" v-bind:alt="search.name">

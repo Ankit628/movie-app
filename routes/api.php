@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*Movies*/
-Route::get('/latestMovies', 'MovieAppController@latestMovies');
-Route::get('/upcomingMovies', 'MovieAppController@upcomingMovies');
-Route::get('/popularMovies', 'MovieAppController@popularMovies');
+Route::get('/latestMovies/{page}', 'MovieAppController@latestMovies');
+Route::get('/upcomingMovies/{page}', 'MovieAppController@upcomingMovies');
+Route::get('/popularMovies/{page}', 'MovieAppController@popularMovies');
 
 /*TV Shows*/
-Route::get('/popularTVShows', 'MovieAppController@popularTVShows');
-Route::get('/airingToday', 'MovieAppController@airingToday');
+Route::get('/popularTvShows/{page}', 'MovieAppController@popularTVShows');
+Route::get('/airingToday/{page}', 'MovieAppController@airingToday');
 
 
 /*Details*/
@@ -34,4 +34,4 @@ Route::get('details/tv/{id}/credits', 'MovieAppController@tvDetailCredits');
 Route::get('details/movie/{id}/credits', 'MovieAppController@movieDetailCredits');
 
 /*Search*/
-Route::get('search/{slug}', 'MovieAppController@search');
+Route::get('search/{slug}/{page}', 'MovieAppController@search');

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
 
 class MovieAppController extends Controller
@@ -17,52 +16,67 @@ class MovieAppController extends Controller
     }
 
     /**
+     * @param $page
      * @return array
      */
-    public function upcomingMovies()
+    public function upcomingMovies($page)
     {
         return Http::withToken(config('services.tmbd.api_key'))
-            ->get('https://api.themoviedb.org/3/movie/upcoming')
+            ->get('https://api.themoviedb.org/3/movie/upcoming', [
+                'page' => $page
+            ])
             ->json();
     }
 
     /**
+     * @param $page
      * @return array
      */
-    public function popularMovies()
+    public function popularMovies($page)
     {
         return Http::withToken(config('services.tmbd.api_key'))
-            ->get('https://api.themoviedb.org/3/movie/popular')
+            ->get('https://api.themoviedb.org/3/movie/popular', [
+                'page' => $page
+            ])
             ->json();
     }
 
     /**
+     * @param $page
      * @return array
      */
-    public function latestMovies()
+    public function latestMovies($page = 1)
     {
         return Http::withToken(config('services.tmbd.api_key'))
-            ->get('https://api.themoviedb.org/3/movie/now_playing')
+            ->get('https://api.themoviedb.org/3/movie/now_playing', [
+                'page' => $page
+            ])
             ->json();
     }
 
     /**
+     * @param $page
      * @return array
      */
-    public function popularTVShows()
+    public function popularTVShows($page)
     {
         return Http::withToken(config('services.tmbd.api_key'))
-            ->get('https://api.themoviedb.org/3/tv/popular')
+            ->get('https://api.themoviedb.org/3/tv/popular', [
+                'page' => $page
+            ])
             ->json();
     }
 
     /**
+     * @param $page
      * @return array
      */
-    public function airingToday()
+    public function airingToday($page)
     {
         return Http::withToken(config('services.tmbd.api_key'))
-            ->get('https://api.themoviedb.org/3/tv/airing_today')
+            ->get('https://api.themoviedb.org/3/tv/airing_today', [
+                'page' => $page
+            ])
             ->json();
     }
 
@@ -133,14 +147,16 @@ class MovieAppController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param $slug
+     * @param $page
      * @return array
      */
-    public function search($slug)
+    public function search($slug, $page)
     {
         return Http::withToken(config('services.tmbd.api_key'))
             ->get('https://api.themoviedb.org/3/search/multi', [
-                'query' => $slug
+                'query' => $slug,
+                'page' => $page
             ])
             ->json();
     }

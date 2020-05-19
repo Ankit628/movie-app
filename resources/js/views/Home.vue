@@ -48,7 +48,7 @@
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         },
         created() {
-            axios.get('/api/upcomingMovies')
+            axios.get('/api/upcomingMovies/1')
                 .then(res => this.movies = res.data.results)
                 .catch(err => console.log(err))
                 .then(function () {
@@ -63,7 +63,7 @@
                         autoHeight: true
                     });
                 });
-            axios.get('/api/popularMovies')
+            axios.get('/api/popularMovies/1')
                 .then(res => this.popularMovies = res.data.results)
                 .catch(err => console.log(err))
                 .then(function () {
@@ -88,7 +88,7 @@
                         }
                     });
                 });
-            axios.get('/api/latestMovies')
+            axios.get('/api/latestMovies/1')
                 .then(res => this.latestMovies = res.data.results)
                 .catch(err => console.log(err))
                 .then(function () {
@@ -113,7 +113,7 @@
                         }
                     });
                 });
-            axios.get('/api/popularTVShows')
+            axios.get('/api/popularTvShows/1')
                 .then(res => this.popularTVShows = res.data.results)
                 .catch(err => console.log(err))
                 .then(function () {
@@ -138,7 +138,7 @@
                         }
                     });
                 });
-            axios.get('/api/airingToday')
+            axios.get('/api/airingToday/1')
                 .then(res => this.airingToday = res.data.results)
                 .catch(err => console.log(err))
                 .then(function () {

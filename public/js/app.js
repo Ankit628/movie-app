@@ -2251,13 +2251,14 @@ __webpack_require__.r(__webpack_exports__);
   name: "PageHeader",
   data: function data() {
     return {
-      search_params: null
+      search_params: null,
+      page: 1
     };
   },
   methods: {
     submitForm: function submitForm(e) {
       e.preventDefault();
-      this.$router.push("/search/" + this.search_params);
+      this.$router.push("/search/" + this.search_params + '/' + this.page);
     }
   }
 });
@@ -2963,7 +2964,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/upcomingMovies').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/upcomingMovies/1').then(function (res) {
       return _this.movies = res.data.results;
     })["catch"](function (err) {
       return console.log(err);
@@ -2979,7 +2980,7 @@ __webpack_require__.r(__webpack_exports__);
         autoHeight: true
       });
     });
-    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/popularMovies').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/popularMovies/1').then(function (res) {
       return _this.popularMovies = res.data.results;
     })["catch"](function (err) {
       return console.log(err);
@@ -3005,7 +3006,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     });
-    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/latestMovies').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/latestMovies/1').then(function (res) {
       return _this.latestMovies = res.data.results;
     })["catch"](function (err) {
       return console.log(err);
@@ -3031,7 +3032,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     });
-    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/popularTVShows').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/popularTvShows/1').then(function (res) {
       return _this.popularTVShows = res.data.results;
     })["catch"](function (err) {
       return console.log(err);
@@ -3057,7 +3058,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     });
-    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/airingToday').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/airingToday/1').then(function (res) {
       return _this.airingToday = res.data.results;
     })["catch"](function (err) {
       return console.log(err);
@@ -3100,6 +3101,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_search_searchBlock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/search/searchBlock */ "./resources/js/components/search/searchBlock.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-sliding-pagination */ "./node_modules/vue-sliding-pagination/dist/vue-sliding-pagination.umd.js");
+/* harmony import */ var vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -3115,31 +3118,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
-  props: ["search"],
+  props: ["search", "page"],
   components: {
-    searchBlock: _components_search_searchBlock__WEBPACK_IMPORTED_MODULE_0__["default"]
+    searchBlock: _components_search_searchBlock__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SlidingPagination: vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2___default.a
   },
   data: function data() {
     return {
       Searches: [],
+      Pages: 1,
       componentKey: 0
     };
   },
   created: function created() {
-    this.fetchData(this.search);
+    this.fetchData(this.search, this.page);
   },
   watch: {
     $route: function $route(to, from) {
-      this.fetchData(to.params.search);
+      this.fetchData(to.params.search, to.params.page);
       this.componentKey += 1;
     }
   },
   methods: {
-    fetchData: function fetchData(search) {
+    pageChangeHandler: function pageChangeHandler(change) {
+      this.$router.push("/search/" + this.$route.params.search + '/' + change);
+    },
+    fetchData: function fetchData(search, page) {
       var _this = this;
 
       $('#wrapper').css('opacity', '0');
@@ -3148,8 +3160,9 @@ __webpack_require__.r(__webpack_exports__);
 
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/search/' + search).then(function (res) {
-        return _this.Searches = res.data.results;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/search/' + search + '/' + page).then(function (res) {
+        _this.Pages = res.data.total_pages;
+        _this.Searches = res.data.results;
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -3171,6 +3184,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_viewMoreComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/viewMoreComponent */ "./resources/js/components/viewMoreComponent.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-sliding-pagination */ "./node_modules/vue-sliding-pagination/dist/vue-sliding-pagination.umd.js");
+/* harmony import */ var vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -3191,31 +3206,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "viewMore",
-  props: ["type"],
+  props: ["type", "page"],
   components: {
-    viewMoreComponent: _components_viewMoreComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+    viewMoreComponent: _components_viewMoreComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SlidingPagination: vue_sliding_pagination__WEBPACK_IMPORTED_MODULE_2___default.a
   },
   data: function data() {
     return {
       ViewMore: [],
+      Pages: 1,
       componentKey: 0
     };
   },
   created: function created() {
-    this.fetchData(this.type);
+    this.fetchData(this.type, this.page);
   },
   watch: {
     $route: function $route(to, from) {
-      this.fetchData(to.params.type);
+      this.fetchData(to.params.type, to.params.page);
       this.componentKey += 1;
     }
   },
   methods: {
-    fetchData: function fetchData(type) {
+    pageChangeHandler: function pageChangeHandler(change) {
+      this.$router.push("/more/" + this.$route.params.type + '/' + change);
+    },
+    fetchData: function fetchData(type, page) {
       var _this = this;
 
       $('#wrapper').css('opacity', '0');
@@ -3224,8 +3248,9 @@ __webpack_require__.r(__webpack_exports__);
 
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/' + type).then(function (res) {
-        return _this.ViewMore = res.data.results;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/' + type + '/' + page).then(function (res) {
+        _this.ViewMore = res.data.results;
+        _this.Pages = res.data.total_pages;
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -40395,7 +40420,9 @@ var render = function() {
             "router-link",
             {
               staticClass: "btn btn-lg btn-link float-right text-success",
-              attrs: { to: { name: "more", params: { type: "airingToday" } } }
+              attrs: {
+                to: { name: "more", params: { type: "airingToday", page: 1 } }
+              }
             },
             [_vm._v("View More...")]
           )
@@ -40427,7 +40454,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "item" }, [
+  return _c("div", { staticClass: "item bg-dark text-white" }, [
     _c("div", { staticClass: "flip" }, [
       _c("div", { staticClass: "front" }, [
         _c("img", {
@@ -40609,7 +40636,9 @@ var render = function() {
             "router-link",
             {
               staticClass: "btn btn-lg btn-link float-right text-success",
-              attrs: { to: { name: "more", params: { type: "latestMovies" } } }
+              attrs: {
+                to: { name: "more", params: { type: "latestMovies", page: 1 } }
+              }
             },
             [_vm._v("View more...")]
           )
@@ -40641,7 +40670,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "item" }, [
+  return _c("div", { staticClass: "item bg-dark text-white" }, [
     _c("div", { staticClass: "flip" }, [
       _c("div", { staticClass: "front" }, [
         _c("img", {
@@ -40727,7 +40756,9 @@ var render = function() {
             "router-link",
             {
               staticClass: "btn btn-lg btn-link float-right text-success",
-              attrs: { to: { name: "more", params: { type: "popularMovies" } } }
+              attrs: {
+                to: { name: "more", params: { type: "popularMovies", page: 1 } }
+              }
             },
             [_vm._v("View More...")]
           )
@@ -40904,7 +40935,10 @@ var render = function() {
             {
               staticClass: "btn btn-lg btn-link float-right text-success",
               attrs: {
-                to: { name: "more", params: { type: "popularTvShows" } }
+                to: {
+                  name: "more",
+                  params: { type: "popularTvShows", page: 1 }
+                }
               }
             },
             [_vm._v("View More...")]
@@ -40946,7 +40980,7 @@ var render = function() {
           "div",
           { key: search.id, staticClass: "col-4 col-sm-4 col-md-3 p-1 p-md-3" },
           [
-            _c("div", { staticClass: "item" }, [
+            _c("div", { staticClass: "item bg-dark text-white" }, [
               _c("div", { staticClass: "flip" }, [
                 _c("div", { staticClass: "front" }, [
                   _c("img", {
@@ -41045,7 +41079,7 @@ var render = function() {
           "div",
           { key: more.id, staticClass: "col-4 col-sm-4 col-md-3 p-1 p-md-3" },
           [
-            _c("div", { staticClass: "item" }, [
+            _c("div", { staticClass: "item bg-dark text-white" }, [
               _c("div", { staticClass: "flip" }, [
                 _c("div", { staticClass: "front" }, [
                   _c("img", {
@@ -41289,6 +41323,18 @@ var render = function() {
           })
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "pagination-area text-center p-3 p-md-5" },
+        [
+          _c("SlidingPagination", {
+            attrs: { pages: _vm.Pages, current: 1, total: _vm.Pages },
+            on: { "page-change": _vm.pageChangeHandler }
+          })
+        ],
+        1
       )
     ],
     1
@@ -41369,6 +41415,18 @@ var render = function() {
         _c("viewMoreComponent", {
           key: _vm.componentKey,
           attrs: { viewMore: _vm.ViewMore, type: _vm.type }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "section",
+      { staticClass: "pagination-area text-center p-3 p-md-5" },
+      [
+        _c("SlidingPagination", {
+          attrs: { pages: _vm.Pages, current: 1, total: _vm.Pages },
+          on: { "page-change": _vm.pageChangeHandler }
         })
       ],
       1
@@ -44422,6 +44480,17 @@ if (inBrowser && window.Vue) {
 
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-sliding-pagination/dist/vue-sliding-pagination.umd.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/vue-sliding-pagination/dist/vue-sliding-pagination.umd.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t():undefined}(window,(function(){return function(e){var t={};function n(i){if(t[i])return t[i].exports;var a=t[i]={i:i,l:!1,exports:{}};return e[i].call(a.exports,a,a.exports,n),a.l=!0,a.exports}return n.m=e,n.c=t,n.d=function(e,t,i){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:i})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var i=Object.create(null);if(n.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)n.d(i,a,function(t){return e[t]}.bind(null,a));return i},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=3)}([function(e,t,n){},function(e){e.exports=JSON.parse('{"componentClass":"c-sliding-pagination","list":"c-sliding-pagination__list","element":"c-sliding-pagination__list-element","elementDisabled":"c-sliding-pagination__list-element--disabled","elementActive":"c-sliding-pagination__list-element--active","page":"c-sliding-pagination__page"}')},function(e,t,n){"use strict";var i=n(0);n.n(i).a},function(e,t,n){"use strict";n.r(t),n.d(t,"range",(function(){return g}));var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("nav",{class:e.classMap.component,attrs:{"aria-label":e.ariaPaginationLabel}},[n("ul",{class:e.classMap.list},[e.showPreviousPageAction?n("li",{class:[e.classMap.element,1==e.current?e.classMap.elementDisabled:""]},[n("a",{class:e.classMap.page,attrs:{href:"#","aria-label":e.ariaPreviousPageLabel,disabled:1==e.current},on:{click:function(t){return t.preventDefault(),t.stopPropagation(),e.goToPage(e.current-1)}}},[e._t("previous-page",[e._v("«")])],2)]):e._e(),e._l(e.beginningPages,(function(t){return n("li",{key:t,class:[e.classMap.element,e.isCurrentPage(t)?e.classMap.elementActive:""]},[n(e.pageComponent,{tag:"component",attrs:{"is-current":e.isCurrentPage(t),"aria-page-label":e.pageLabel(t),page:t,"page-class":e.classMap.page},on:{"page-click":function(n){return e.goToPage(t)}}})],1)})),e.hasBeginningGap?n("li",{class:[e.classMap.element,e.classMap.elementDisabled],attrs:{"aria-hidden":"true"}},[n("a",{class:e.classMap.page,attrs:{href:"#",disabled:""}},[e._t("gap-left",[e._v("…")])],2)]):e._e(),e._l(e.slidingWindowPages,(function(t){return n("li",{key:t,class:[e.classMap.element,e.isCurrentPage(t)?e.classMap.elementActive:""]},[n(e.pageComponent,{tag:"component",attrs:{"is-current":e.isCurrentPage(t),"aria-page-label":e.pageLabel(t),page:t,"page-class":e.classMap.page},on:{"page-click":function(n){return e.goToPage(t)}}})],1)})),e.hasEndingGap?n("li",{class:[e.classMap.element,e.classMap.elementDisabled],attrs:{"aria-hidden":"true"}},[n("a",{class:e.classMap.page,attrs:{href:"#",disabled:""}},[e._t("gap-right",[e._v("…")])],2)]):e._e(),e._l(e.endingPages,(function(t){return n("li",{key:t,class:[e.classMap.element,e.isCurrentPage(t)?e.classMap.elementActive:""]},[n(e.pageComponent,{tag:"component",attrs:{"is-current":e.isCurrentPage(t),"aria-page-label":e.pageLabel(t),page:t,"page-class":e.classMap.page},on:{"page-click":function(n){return e.goToPage(t)}}})],1)})),e.showNextPageAction?n("li",{staticClass:"c-sliding-pagination__list-element",class:[e.classMap.element,e.current==e.total?e.classMap.elementDisabled:""]},[n("a",{class:e.classMap.page,attrs:{href:"#","aria-label":e.ariaNextPageLabel,disabled:e.current==e.total},on:{click:function(t){return t.preventDefault(),t.stopPropagation(),e.goToPage(e.current+1)}}},[e._t("next-page",[e._v("»")])],2)]):e._e()],2)])};i._withStripped=!0;var a=function(){var e=this,t=e.$createElement;return(e._self._c||t)("a",{class:e.pageClass,attrs:{href:"#","aria-label":e.ariaPageLabel},on:{click:function(t){return t.stopPropagation(),t.preventDefault(),e.goToPage(e.page)}}},[e._v("\n  "+e._s(e.page)+"\n")])};function r(e,t,n,i,a,r,s,l){var o,g="function"==typeof e?e.options:e;if(t&&(g.render=t,g.staticRenderFns=n,g._compiled=!0),i&&(g.functional=!0),r&&(g._scopeId="data-v-"+r),s?(o=function(e){(e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),a&&a.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(s)},g._ssrRegister=o):a&&(o=l?function(){a.call(this,this.$root.$options.shadowRoot)}:a),o)if(g.functional){g._injectStyles=o;var u=g.render;g.render=function(e,t){return o.call(t),u(e,t)}}else{var c=g.beforeCreate;g.beforeCreate=c?[].concat(c,o):[o]}return{exports:e,options:g}}a._withStripped=!0;var s=r({name:"SlidingPaginationDefaultPage",props:{ariaPageLabel:{type:String,required:!0},isCurrent:{type:Boolean,required:!0},page:{type:Number,required:!0},pageClass:{type:String,required:!0}},computed:{currentClass:function(){return this.isCurrent?"c-sliding-pagination__page--current":""}},methods:{goToPage:function(){this.$emit("page-click",this.page)}}},a,[],!1,null,null,null);s.options.__file="src/SlidingPaginationDefaultPage.vue";var l=s.exports,o=n(1);function g(e,t){var n=[];if("number"!=typeof e||"number"!=typeof t)return n;if(e>t){var i=e;e=t,t=i}for(var a=e;a<=t;a++)n.push(a);return n}var u={name:"SlidingPagination",props:{ariaPaginationLabel:{type:String,required:!1,default:"Pagination Navigation"},ariaGotoPageLabel:{type:String,required:!1,default:"Go to page %page% of %total%"},ariaPreviousPageLabel:{type:String,required:!1,default:"Go to previous page"},ariaNextPageLabel:{type:String,required:!1,default:"Go to next page"},ariaCurrentPageLabel:{type:String,required:!1,default:"Page %page% of %total%, current page"},classMap:{type:Object,required:!1,default:function(){return o}},current:{required:!0,type:Number},total:{required:!0,type:Number},slidingEndingSize:{required:!1,type:Number,default:2},slidingWindowSize:{required:!1,type:Number,default:3},nonSlidingSize:{required:!1,type:Number,default:9},pageComponent:{required:!1,type:String,default:"sliding-pagination-default-page"}},components:{SlidingPaginationDefaultPage:l},computed:{isSliding:function(){return this.total>this.nonSlidingSize},hasBeginningGap:function(){return!!this.isSliding&&this.lastBeginningPage+1!==this.firstWindowPage},hasEndingGap:function(){return!!this.isSliding&&this.lastWindowPage+1!==this.firstEndingPage},beginningPages:function(){return g(1,this.isSliding?this.slidingEndingSize:this.total)},lastBeginningPage:function(){return this.beginningPages[this.beginningPages.length-1]},endingPages:function(){return this.isSliding?g(this.total-this.slidingEndingSize+1,this.total):[]},firstEndingPage:function(){return this.endingPages[0]},slidingWindowHalf:function(){var e=this.slidingWindowSize/2;return this.slidingWindowSize%2==1&&(e-=.5),e},slidingWindowPages:function(){if(!this.isSliding)return[];var e=this.lastBeginningPage+this.slidingWindowHalf,t=this.firstEndingPage-this.slidingWindowHalf;if(this.current<=e)return g(this.lastBeginningPage+1,this.lastBeginningPage+this.slidingWindowSize);if(this.current>e&&this.current<t){var n=this.slidingWindowHalf;return this.slidingWindowSize%2==0&&(n/=2),g(-this.slidingWindowHalf+this.current,n+this.current)}return g(this.firstEndingPage-this.slidingWindowSize,this.firstEndingPage-1)},firstWindowPage:function(){return this.slidingWindowPages[0]},lastWindowPage:function(){return this.slidingWindowPages[this.slidingWindowPages.length-1]},showPreviousPageAction:function(){return this.total>this.nonSlidingSize},showNextPageAction:function(){return this.total>this.nonSlidingSize}},methods:{replaceLabelVars:function(e,t){return e.replace("%total%",this.total).replace("%page%",t)},isCurrentPage:function(e){return this.current===e},currentPageLabel:function(e){return this.replaceLabelVars(this.ariaCurrentPageLabel,e)},goToPage:function(e){this.$emit("page-change",e)},goToPageLabel:function(e){return this.replaceLabelVars(this.ariaGotoPageLabel,e)},pageLabel:function(e){return this.isCurrentPage(e)?this.currentPageLabel(e):this.goToPageLabel(e)}}},c=(n(2),r(u,i,[],!1,null,null,null));c.options.__file="src/SlidingPagination.vue";t.default=c.exports}])}));
 
 /***/ }),
 
@@ -57815,12 +57884,12 @@ var routes = [{
   component: _views_Details_movieDetails__WEBPACK_IMPORTED_MODULE_2__["default"],
   props: true
 }, {
-  path: '/search/:search',
+  path: '/search/:search/:page',
   name: 'Search',
   component: _views_Search__WEBPACK_IMPORTED_MODULE_3__["default"],
   props: true
 }, {
-  path: '/more/:type',
+  path: '/more/:type/:page',
   name: 'more',
   component: _views_ViewMore__WEBPACK_IMPORTED_MODULE_4__["default"],
   props: true

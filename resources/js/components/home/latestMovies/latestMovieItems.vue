@@ -1,5 +1,5 @@
 <template>
-    <div class="item">
+    <div class="item bg-dark text-white">
         <div class="flip">
             <div class="front">
                 <img class="d-block w-100" v-bind:src="'https://image.tmdb.org/t/p/w342'+movie.poster_path" v-bind:alt="movie.title">

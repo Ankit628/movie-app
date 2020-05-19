@@ -37,12 +37,13 @@
         data() {
             return {
                 search_params: null,
+                page: 1
             }
         },
         methods: {
             submitForm(e) {
                 e.preventDefault();
-                this.$router.push("/search/" + this.search_params);
+                this.$router.push("/search/" + this.search_params + '/' + this.page);
             }
         }
     }

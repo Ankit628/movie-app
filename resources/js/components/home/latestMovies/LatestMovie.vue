@@ -8,7 +8,7 @@
                         <latestMovieItems v-bind:movie="latestMovie"/>
                     </div>
                 </div>
-                <router-link v-bind:to="{ name: 'more', params: { type: 'latestMovies' } }" class="btn btn-lg btn-link float-right text-success">View more...</router-link>
+                <router-link v-bind:to="{ name: 'more', params: { type: 'latestMovies',page:1 } }" class="btn btn-lg btn-link float-right text-success">View more...</router-link>
             </div>
         </div>
     </div>

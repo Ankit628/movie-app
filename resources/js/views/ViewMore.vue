@@ -15,42 +15,53 @@
         <section class="viewMore-area">
             <viewMoreComponent :key="componentKey" v-bind:viewMore="ViewMore" v-bind:type="type"/>
         </section>
+        <section class="pagination-area text-center p-3 p-md-5">
+            <SlidingPagination v-bind:pages="Pages" :current="1" :total="Pages" @page-change="pageChangeHandler"/>
+        </section>
     </div>
 </template>
 
 <script>
     import viewMoreComponent from "../components/viewMoreComponent";
     import axios from "axios";
+    import SlidingPagination from "vue-sliding-pagination";
 
     export default {
         name: "viewMore",
-        props: ["type"],
+        props: ["type", "page"],
         components: {
-            viewMoreComponent
+            viewMoreComponent, SlidingPagination
         },
         data() {
             return {
                 ViewMore: [],
+                Pages: 1,
                 componentKey: 0
             }
         },
         created() {
-            this.fetchData(this.type);
+            this.fetchData(this.type, this.page);
         },
         watch: {
             $route(to, from) {
-                this.fetchData(to.params.type);
+                this.fetchData(to.params.type, to.params.page);
                 this.componentKey += 1;
             }
         },
         methods: {
-            fetchData(type) {
+            pageChangeHandler(change) {
+                this.$router.push("/more/" + this.$route.params.type + '/' + change);
+            },
+            fetchData(type, page) {
                 $('#wrapper').css('opacity', '0');
                 Pace.restart();
                 document.body.scrollTop = 0; // For Safari
                 document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-                axios.get('/api/' + type)
-                    .then(res => this.ViewMore = res.data.results)
+                axios.get('/api/' + type + '/' + page)
+                    .then(res => {
+                        this.ViewMore = res.data.results;
+                        this.Pages = res.data.total_pages;
+                    })
                     .catch(err => console.log(err));
             }
         }
