@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-2 col-sm-4 col-md-3 p-1 p-md-3" v-bind:key="search.id" v-for="search in searches">
+        <div class="col-4 col-sm-4 col-md-3 p-1 p-md-3" v-bind:key="search.id" v-for="search in searches">
             <div class="item">
                 <div class="flip">
                     <div class="front">

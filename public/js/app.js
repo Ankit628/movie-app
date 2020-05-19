@@ -40709,7 +40709,7 @@ var render = function() {
     _vm._l(_vm.searches, function(search) {
       return _c(
         "div",
-        { key: search.id, staticClass: "col-2 col-sm-4 col-md-3 p-1 p-md-3" },
+        { key: search.id, staticClass: "col-4 col-sm-4 col-md-3 p-1 p-md-3" },
         [
           _c("div", { staticClass: "item" }, [
             _c("div", { staticClass: "flip" }, [
