@@ -2326,6 +2326,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "airingTodayItem",
   props: ['tv']
@@ -2450,6 +2451,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "latestMovieItems",
   props: ["movie"]
@@ -2518,6 +2520,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "popularMovItems",
   props: ['movie']
@@ -2534,6 +2537,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2624,6 +2628,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "searchBlock",
   props: ["searches"]
@@ -2640,6 +2655,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2977,7 +3003,7 @@ __webpack_require__.r(__webpack_exports__);
         animateOut: 'fadeOut',
         items: 1,
         dots: false,
-        autoHeight: true
+        autoHeight: false
       });
     });
     axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/popularMovies/1').then(function (res) {
@@ -2987,7 +3013,7 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function () {
       jQuery('.owl-popularMov').owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 10,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
@@ -2998,7 +3024,8 @@ __webpack_require__.r(__webpack_exports__);
             items: 3
           },
           600: {
-            items: 5
+            items: 5,
+            margin: 20
           },
           1000: {
             items: 7
@@ -3013,7 +3040,7 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function () {
       jQuery('.owl-latestMov').owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 10,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
@@ -3024,7 +3051,8 @@ __webpack_require__.r(__webpack_exports__);
             items: 3
           },
           600: {
-            items: 5
+            items: 5,
+            margin: 20
           },
           1000: {
             items: 7
@@ -3039,7 +3067,7 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function () {
       jQuery('.owl-popularTV').owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 10,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
@@ -3050,7 +3078,8 @@ __webpack_require__.r(__webpack_exports__);
             items: 3
           },
           600: {
-            items: 5
+            items: 5,
+            margin: 20
           },
           1000: {
             items: 7
@@ -3065,7 +3094,7 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function () {
       jQuery('.owl-airingToday').owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 10,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
@@ -3076,7 +3105,8 @@ __webpack_require__.r(__webpack_exports__);
             items: 3
           },
           600: {
-            items: 5
+            items: 5,
+            margin: 20
           },
           1000: {
             items: 7
@@ -40419,7 +40449,7 @@ var render = function() {
           _c(
             "router-link",
             {
-              staticClass: "btn btn-lg btn-link float-right text-success",
+              staticClass: "btn btn-link float-right text-success",
               attrs: {
                 to: { name: "more", params: { type: "airingToday", page: 1 } }
               }
@@ -40454,41 +40484,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "item bg-dark text-white" }, [
-    _c("div", { staticClass: "flip" }, [
-      _c("div", { staticClass: "front" }, [
-        _c("img", {
-          staticClass: "d-block w-100",
-          attrs: {
-            src: "https://image.tmdb.org/t/p/w342" + _vm.tv.poster_path,
-            alt: _vm.tv.name
-          }
-        })
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "item bg-dark text-white" },
+    [
       _c(
-        "div",
-        { staticClass: "back" },
+        "router-link",
+        { attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } } },
         [
-          _c("h5", [_vm._v(_vm._s(_vm.tv.name))]),
-          _vm._v(" "),
-          _c("p", { staticClass: "d-none d-md-block" }, [
-            _vm._v(_vm._s(_vm.tv.overview.slice(0, 70)) + "...")
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-sm btn-secondary",
-              attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } }
-            },
-            [_vm._v("Read more")]
-          )
-        ],
-        1
+          _c("div", { staticClass: "flip" }, [
+            _c("div", { staticClass: "front" }, [
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: {
+                  src: "https://image.tmdb.org/t/p/w342" + _vm.tv.poster_path,
+                  alt: _vm.tv.name
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "back" }, [
+              _c("h5", [_vm._v(_vm._s(_vm.tv.name))]),
+              _vm._v(" "),
+              _c("p", { staticClass: "d-none d-md-block" }, [
+                _vm._v("Click to know more..")
+              ])
+            ])
+          ])
+        ]
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40576,7 +40603,7 @@ var render = function() {
         _c(
           "router-link",
           {
-            staticClass: "btn btn-sm btn-secondary",
+            staticClass: "btn btn-sm btn-success",
             attrs: {
               to: { name: "movie-details", params: { id: _vm.movie.id } }
             }
@@ -40635,7 +40662,7 @@ var render = function() {
           _c(
             "router-link",
             {
-              staticClass: "btn btn-lg btn-link float-right text-success",
+              staticClass: "btn btn-link float-right text-success",
               attrs: {
                 to: { name: "more", params: { type: "latestMovies", page: 1 } }
               }
@@ -40670,43 +40697,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "item bg-dark text-white" }, [
-    _c("div", { staticClass: "flip" }, [
-      _c("div", { staticClass: "front" }, [
-        _c("img", {
-          staticClass: "d-block w-100",
-          attrs: {
-            src: "https://image.tmdb.org/t/p/w342" + _vm.movie.poster_path,
-            alt: _vm.movie.title
-          }
-        })
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "item bg-dark text-white" },
+    [
       _c(
-        "div",
-        { staticClass: "back" },
+        "router-link",
+        {
+          attrs: { to: { name: "movie-details", params: { id: _vm.movie.id } } }
+        },
         [
-          _c("h5", [_vm._v(_vm._s(_vm.movie.title))]),
-          _vm._v(" "),
-          _c("p", { staticClass: "d-none d-md-block" }, [
-            _vm._v(_vm._s(_vm.movie.overview.slice(0, 70)) + "...")
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-sm btn-secondary",
-              attrs: {
-                to: { name: "movie-details", params: { id: _vm.movie.id } }
-              }
-            },
-            [_vm._v("Read more")]
-          )
-        ],
-        1
+          _c("div", { staticClass: "flip" }, [
+            _c("div", { staticClass: "front" }, [
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: {
+                  src:
+                    "https://image.tmdb.org/t/p/w342" + _vm.movie.poster_path,
+                  alt: _vm.movie.title
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "back" }, [
+              _c("h5", [_vm._v(_vm._s(_vm.movie.title))]),
+              _vm._v(" "),
+              _c("p", { staticClass: "d-none d-md-block" }, [
+                _vm._v("Click to know more")
+              ])
+            ])
+          ])
+        ]
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40755,7 +40780,7 @@ var render = function() {
           _c(
             "router-link",
             {
-              staticClass: "btn btn-lg btn-link float-right text-success",
+              staticClass: "btn btn-link float-right text-success",
               attrs: {
                 to: { name: "more", params: { type: "popularMovies", page: 1 } }
               }
@@ -40790,43 +40815,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "item" }, [
-    _c("div", { staticClass: "flip" }, [
-      _c("div", { staticClass: "front" }, [
-        _c("img", {
-          staticClass: "d-block w-100",
-          attrs: {
-            src: "https://image.tmdb.org/t/p/w342" + _vm.movie.poster_path,
-            alt: _vm.movie.title
-          }
-        })
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "item" },
+    [
       _c(
-        "div",
-        { staticClass: "back" },
+        "router-link",
+        {
+          attrs: { to: { name: "movie-details", params: { id: _vm.movie.id } } }
+        },
         [
-          _c("h5", [_vm._v(_vm._s(_vm.movie.title))]),
-          _vm._v(" "),
-          _c("p", { staticClass: "d-none d-md-block" }, [
-            _vm._v(_vm._s(_vm.movie.overview.slice(0, 70)) + "...")
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-sm btn-secondary",
-              attrs: {
-                to: { name: "movie-details", params: { id: _vm.movie.id } }
-              }
-            },
-            [_vm._v("Read more")]
-          )
-        ],
-        1
+          _c("div", { staticClass: "flip" }, [
+            _c("div", { staticClass: "front" }, [
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: {
+                  src:
+                    "https://image.tmdb.org/t/p/w342" + _vm.movie.poster_path,
+                  alt: _vm.movie.title
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "back" }, [
+              _c("h5", [_vm._v(_vm._s(_vm.movie.title))]),
+              _vm._v(" "),
+              _c("p", { staticClass: "d-none d-md-block" }, [
+                _vm._v("Click to know more...")
+              ])
+            ])
+          ])
+        ]
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40850,41 +40873,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "item" }, [
-    _c("div", { staticClass: "flip" }, [
-      _c("div", { staticClass: "front" }, [
-        _c("img", {
-          staticClass: "d-block w-100",
-          attrs: {
-            src: "https://image.tmdb.org/t/p/w342" + _vm.tv.poster_path,
-            alt: _vm.tv.name
-          }
-        })
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "item" },
+    [
       _c(
-        "div",
-        { staticClass: "back" },
+        "router-link",
+        { attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } } },
         [
-          _c("h5", [_vm._v(_vm._s(_vm.tv.name))]),
-          _vm._v(" "),
-          _c("p", { staticClass: "d-none d-md-block" }, [
-            _vm._v(_vm._s(_vm.tv.overview.slice(0, 70)) + "...")
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-sm btn-secondary",
-              attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } }
-            },
-            [_vm._v("Read more")]
-          )
-        ],
-        1
+          _c("div", { staticClass: "flip" }, [
+            _c("div", { staticClass: "front" }, [
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: {
+                  src: "https://image.tmdb.org/t/p/w342" + _vm.tv.poster_path,
+                  alt: _vm.tv.name
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "back" }, [
+              _c("h5", [_vm._v(_vm._s(_vm.tv.name))]),
+              _vm._v(" "),
+              _c("p", { staticClass: "d-none d-md-block" }, [
+                _vm._v("Click to know more...")
+              ])
+            ])
+          ])
+        ]
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40933,7 +40953,7 @@ var render = function() {
           _c(
             "router-link",
             {
-              staticClass: "btn btn-lg btn-link float-right text-success",
+              staticClass: "btn btn-link float-right text-success",
               attrs: {
                 to: {
                   name: "more",
@@ -40980,67 +41000,87 @@ var render = function() {
           "div",
           { key: search.id, staticClass: "col-4 col-sm-4 col-md-3 p-1 p-md-3" },
           [
-            _c("div", { staticClass: "item bg-dark text-white" }, [
-              _c("div", { staticClass: "flip" }, [
-                _c("div", { staticClass: "front" }, [
-                  _c("img", {
-                    staticClass: "d-block w-100",
-                    attrs: {
-                      src:
-                        "https://image.tmdb.org/t/p/w342" + search.poster_path,
-                      alt: search.name
-                    }
-                  })
-                ]),
+            _c(
+              "div",
+              { staticClass: "item bg-dark text-white" },
+              [
+                search.media_type === "movie"
+                  ? _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "movie-details",
+                            params: { id: search.id }
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "flip" }, [
+                          _c("div", { staticClass: "front" }, [
+                            _c("img", {
+                              staticClass: "d-block w-100",
+                              attrs: {
+                                src:
+                                  "https://image.tmdb.org/t/p/w342" +
+                                  search.poster_path,
+                                alt: search.name
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "back" }, [
+                            _c("h5", [_vm._v(_vm._s(search.name))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "Click the link bellow to learn more about the movie."
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "back" },
-                  [
-                    _c("h5", [_vm._v(_vm._s(search.name))]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Click the link bellow to learn more about the movie."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    search.media_type === "movie"
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-sm btn-secondary",
-                            attrs: {
-                              to: {
-                                name: "movie-details",
-                                params: { id: search.id }
+                search.media_type === "tv"
+                  ? _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: { name: "tv-details", params: { id: search.id } }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "flip" }, [
+                          _c("div", { staticClass: "front" }, [
+                            _c("img", {
+                              staticClass: "d-block w-100",
+                              attrs: {
+                                src:
+                                  "https://image.tmdb.org/t/p/w342" +
+                                  search.poster_path,
+                                alt: search.name
                               }
-                            }
-                          },
-                          [_vm._v("Read more")]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    search.media_type === "tv"
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-sm btn-secondary",
-                            attrs: {
-                              to: {
-                                name: "tv-details",
-                                params: { id: search.id }
-                              }
-                            }
-                          },
-                          [_vm._v("Read more")]
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ])
-            ])
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "back" }, [
+                            _c("h5", [_vm._v(_vm._s(search.name))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "Click the link bellow to learn more about the movie."
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              ],
+              1
+            )
           ]
         )
       }),
@@ -41079,66 +41119,86 @@ var render = function() {
           "div",
           { key: more.id, staticClass: "col-4 col-sm-4 col-md-3 p-1 p-md-3" },
           [
-            _c("div", { staticClass: "item bg-dark text-white" }, [
-              _c("div", { staticClass: "flip" }, [
-                _c("div", { staticClass: "front" }, [
-                  _c("img", {
-                    staticClass: "d-block w-100",
-                    attrs: {
-                      src: "https://image.tmdb.org/t/p/w342" + more.poster_path,
-                      alt: more.name
-                    }
-                  })
-                ]),
+            _c(
+              "div",
+              { staticClass: "item bg-dark text-white" },
+              [
+                _vm.type === "latestMovies" || _vm.type === "popularMovies"
+                  ? _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-sm btn-secondary",
+                        attrs: {
+                          to: { name: "movie-details", params: { id: more.id } }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "flip" }, [
+                          _c("div", { staticClass: "front" }, [
+                            _c("img", {
+                              staticClass: "d-block w-100",
+                              attrs: {
+                                src:
+                                  "https://image.tmdb.org/t/p/w342" +
+                                  more.poster_path,
+                                alt: more.name
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "back" }, [
+                            _c("h5", [_vm._v(_vm._s(more.name))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "Click the link bellow to learn more about the movie."
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "back" },
-                  [
-                    _c("h5", [_vm._v(_vm._s(more.name))]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Click the link bellow to learn more about the movie."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm.type === "latestMovies" || _vm.type === "popularMovies"
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-sm btn-secondary",
-                            attrs: {
-                              to: {
-                                name: "movie-details",
-                                params: { id: more.id }
+                _vm.type === "airingToday" || _vm.type === "popularTvShows"
+                  ? _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-sm btn-secondary",
+                        attrs: {
+                          to: { name: "tv-details", params: { id: more.id } }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "flip" }, [
+                          _c("div", { staticClass: "front" }, [
+                            _c("img", {
+                              staticClass: "d-block w-100",
+                              attrs: {
+                                src:
+                                  "https://image.tmdb.org/t/p/w342" +
+                                  more.poster_path,
+                                alt: more.name
                               }
-                            }
-                          },
-                          [_vm._v("Read more")]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.type === "airingToday" || _vm.type === "popularTvShows"
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-sm btn-secondary",
-                            attrs: {
-                              to: {
-                                name: "tv-details",
-                                params: { id: more.id }
-                              }
-                            }
-                          },
-                          [_vm._v("Read more")]
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ])
-            ])
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "back" }, [
+                            _c("h5", [_vm._v(_vm._s(more.name))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "Click the link bellow to learn more about the movie."
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              ],
+              1
+            )
           ]
         )
       }),

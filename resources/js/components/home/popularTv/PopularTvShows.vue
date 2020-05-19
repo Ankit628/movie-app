@@ -8,7 +8,7 @@
                         <popularTVShowsItem v-bind:tv="popularTVShow"/>
                     </div>
                 </div>
-                <router-link v-bind:to="{name:'more',params:{type:'popularTvShows',page:1}}" class="btn btn-lg btn-link float-right text-success">View More...</router-link>
+                <router-link v-bind:to="{name:'more',params:{type:'popularTvShows',page:1}}" class="btn btn-link float-right text-success">View More...</router-link>
             </div>
         </div>
     </div>

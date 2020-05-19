@@ -60,7 +60,7 @@
                         animateOut: 'fadeOut',
                         items: 1,
                         dots: false,
-                        autoHeight: true
+                        autoHeight: false
                     });
                 });
             axios.get('/api/popularMovies/1')
@@ -69,7 +69,7 @@
                 .then(function () {
                     jQuery('.owl-popularMov').owlCarousel({
                         loop: true,
-                        margin: 20,
+                        margin: 10,
                         autoplay: true,
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
@@ -80,7 +80,8 @@
                                 items: 3
                             },
                             600: {
-                                items: 5
+                                items: 5,
+                                margin: 20,
                             },
                             1000: {
                                 items: 7
@@ -94,7 +95,7 @@
                 .then(function () {
                     jQuery('.owl-latestMov').owlCarousel({
                         loop: true,
-                        margin: 20,
+                        margin: 10,
                         autoplay: true,
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
@@ -105,7 +106,8 @@
                                 items: 3
                             },
                             600: {
-                                items: 5
+                                items: 5,
+                                margin: 20
                             },
                             1000: {
                                 items: 7
@@ -119,7 +121,7 @@
                 .then(function () {
                     jQuery('.owl-popularTV').owlCarousel({
                         loop: true,
-                        margin: 20,
+                        margin: 10,
                         autoplay: true,
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
@@ -130,7 +132,8 @@
                                 items: 3
                             },
                             600: {
-                                items: 5
+                                items: 5,
+                                margin: 20
                             },
                             1000: {
                                 items: 7
@@ -144,7 +147,7 @@
                 .then(function () {
                     jQuery('.owl-airingToday').owlCarousel({
                         loop: true,
-                        margin: 20,
+                        margin: 10,
                         autoplay: true,
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
@@ -155,7 +158,8 @@
                                 items: 3
                             },
                             600: {
-                                items: 5
+                                items: 5,
+                                margin: 20
                             },
                             1000: {
                                 items: 7

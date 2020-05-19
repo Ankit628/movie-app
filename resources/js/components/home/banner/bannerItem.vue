@@ -4,7 +4,7 @@
         <div class="carousel-caption text-left pl-0 pb-0 p-md-4 text-md-center">
             <h2> {{movie.title}}</h2>
             <h3> Releasing on: {{movie.release_date}} </h3>
-            <router-link v-bind:to="{ name: 'movie-details', params: { id: movie.id } }" class="btn btn-sm btn-secondary">Read more</router-link>
+            <router-link v-bind:to="{ name: 'movie-details', params: { id: movie.id } }" class="btn btn-sm btn-success">Read more</router-link>
         </div>
     </div>
 </template>
