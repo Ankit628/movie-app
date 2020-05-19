@@ -8,6 +8,7 @@
                         <popularMovItems v-bind:movie="popularMovie"/>
                     </div>
                 </div>
+                <router-link v-bind:to="{ name:'more', params:{type:'popularMovies'} }" class="btn btn-lg btn-link float-right text-success">View More...</router-link>
             </div>
         </div>
     </div>

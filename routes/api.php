@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*Movies*/
-Route::get('/nowPlayingMovies', 'MovieAppController@nowPlayingMovies');
 Route::get('/latestMovies', 'MovieAppController@latestMovies');
 Route::get('/upcomingMovies', 'MovieAppController@upcomingMovies');
 Route::get('/popularMovies', 'MovieAppController@popularMovies');

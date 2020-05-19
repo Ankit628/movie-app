@@ -44,6 +44,8 @@
         mounted() {
             $('#wrapper').css('opacity', '0');
             Pace.restart();
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         },
         created() {
             axios.get('/api/upcomingMovies')
@@ -192,6 +194,10 @@
             top: 30px;
             left: 50px;
             font-size: 5rem;
+        }
+
+        h2 {
+            font-size: 50px;
         }
     }
 </style>

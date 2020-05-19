@@ -19,16 +19,6 @@ class MovieAppController extends Controller
     /**
      * @return array
      */
-    public function nowPlayingMovies()
-    {
-        return Http::withToken(config('services.tmbd.api_key'))
-            ->get('https://api.themoviedb.org/3/movie/now_playing')
-            ->json();
-    }
-
-    /**
-     * @return array
-     */
     public function upcomingMovies()
     {
         return Http::withToken(config('services.tmbd.api_key'))

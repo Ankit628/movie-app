@@ -1,12 +1,16 @@
 <template>
-    <section class="search-container">
-        <div class="container">
-            <div class="row">
-                <h1 class="my-3">Your Search Results ...</h1>
+    <div id="search">
+        <section class="search-header">
+            <div class="container">
+                <div class="row">
+                    <h1 class="my-3">Your Search Results ...</h1>
+                </div>
             </div>
+        </section>
+        <Section class="search-area">
             <searchBlock v-bind:searches="Searches" :key="componentKey"/>
-        </div>
-    </section>
+        </Section>
+    </div>
 </template>
 
 <script>
