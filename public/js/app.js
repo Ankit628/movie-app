@@ -40709,7 +40709,7 @@ var render = function() {
     _vm._l(_vm.searches, function(search) {
       return _c(
         "div",
-        { key: search.id, staticClass: "col-sm-4 col-md-3 p-1 p-md-3" },
+        { key: search.id, staticClass: "col-2 col-sm-4 col-md-3 p-1 p-md-3" },
         [
           _c("div", { staticClass: "item" }, [
             _c("div", { staticClass: "flip" }, [
@@ -40729,7 +40729,7 @@ var render = function() {
                 [
                   _c("h5", [_vm._v(_vm._s(search.name))]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "d-none d-md-block" }, [
+                  _c("p", [
                     _vm._v(
                       "Click the link bellow to learn more about the movie."
                     )
