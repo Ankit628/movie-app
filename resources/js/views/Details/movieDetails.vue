@@ -46,7 +46,7 @@
                     .then(function () {
                         jQuery('.owl-movie-casts').owlCarousel({
                             loop: true,
-                            margin: 20,
+                            margin: 10,
                             autoplay: true,
                             autoplayTimeout: 5000,
                             autoplayHoverPause: true,
@@ -54,7 +54,6 @@
                             dots: false,
                             responsive: {
                                 600: {
-                                    dots: true,
                                     items: 4
                                 },
                                 1000: {
@@ -69,7 +68,7 @@
                     .then(function () {
                         jQuery('.owl-movie-similar').owlCarousel({
                             loop: true,
-                            margin: 20,
+                            margin: 10,
                             autoplay: true,
                             autoplayTimeout: 5000,
                             autoplayHoverPause: true,
@@ -77,7 +76,6 @@
                             dots: false,
                             responsive: {
                                 600: {
-                                    dots: true,
                                     items: 4
                                 },
                                 1000: {

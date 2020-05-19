@@ -2762,7 +2762,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         jQuery('.owl-tv-casts').owlCarousel({
           loop: true,
-          margin: 20,
+          margin: 10,
           autoplay: true,
           autoplayTimeout: 5000,
           autoplayHoverPause: true,
@@ -2770,7 +2770,6 @@ __webpack_require__.r(__webpack_exports__);
           dots: false,
           responsive: {
             600: {
-              dots: true,
               items: 4
             },
             1000: {
@@ -2786,7 +2785,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         jQuery('.owl-tv-similar').owlCarousel({
           loop: true,
-          margin: 20,
+          margin: 10,
           autoplay: true,
           autoplayTimeout: 5000,
           autoplayHoverPause: true,
@@ -2794,7 +2793,6 @@ __webpack_require__.r(__webpack_exports__);
           dots: false,
           responsive: {
             600: {
-              dots: true,
               items: 4
             },
             1000: {
@@ -2874,7 +2872,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         jQuery('.owl-movie-casts').owlCarousel({
           loop: true,
-          margin: 20,
+          margin: 10,
           autoplay: true,
           autoplayTimeout: 5000,
           autoplayHoverPause: true,
@@ -2882,7 +2880,6 @@ __webpack_require__.r(__webpack_exports__);
           dots: false,
           responsive: {
             600: {
-              dots: true,
               items: 4
             },
             1000: {
@@ -2898,7 +2895,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         jQuery('.owl-movie-similar').owlCarousel({
           loop: true,
-          margin: 20,
+          margin: 10,
           autoplay: true,
           autoplayTimeout: 5000,
           autoplayHoverPause: true,
@@ -2906,7 +2903,6 @@ __webpack_require__.r(__webpack_exports__);
           dots: false,
           responsive: {
             600: {
-              dots: true,
               items: 4
             },
             1000: {
@@ -3019,6 +3015,7 @@ __webpack_require__.r(__webpack_exports__);
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
+        dots: false,
         animateOut: 'fadeOut',
         autoHeight: true,
         responsive: {
@@ -3026,8 +3023,7 @@ __webpack_require__.r(__webpack_exports__);
             items: 3
           },
           600: {
-            items: 5,
-            margin: 20
+            items: 5
           },
           1000: {
             items: 7
@@ -3048,13 +3044,13 @@ __webpack_require__.r(__webpack_exports__);
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
         autoHeight: true,
+        dots: false,
         responsive: {
           0: {
             items: 3
           },
           600: {
-            items: 5,
-            margin: 20
+            items: 5
           },
           1000: {
             items: 7
@@ -3075,13 +3071,13 @@ __webpack_require__.r(__webpack_exports__);
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
         autoHeight: true,
+        dots: false,
         responsive: {
           0: {
             items: 3
           },
           600: {
-            items: 5,
-            margin: 20
+            items: 5
           },
           1000: {
             items: 7
@@ -3102,13 +3098,13 @@ __webpack_require__.r(__webpack_exports__);
         autoplayHoverPause: true,
         animateOut: 'fadeOut',
         autoHeight: true,
+        dots: false,
         responsive: {
           0: {
             items: 3
           },
           600: {
-            items: 5,
-            margin: 20
+            items: 5
           },
           1000: {
             items: 7
@@ -58032,14 +58028,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./resources/js/views/Details/movieDetails.vue ***!
   \*****************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _movieDetails_vue_vue_type_template_id_490559be_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./movieDetails.vue?vue&type=template&id=490559be&scoped=true& */ "./resources/js/views/Details/movieDetails.vue?vue&type=template&id=490559be&scoped=true&");
 /* harmony import */ var _movieDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./movieDetails.vue?vue&type=script&lang=js& */ "./resources/js/views/Details/movieDetails.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _movieDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _movieDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -58069,7 +58066,7 @@ component.options.__file = "resources/js/views/Details/movieDetails.vue"
 /*!******************************************************************************!*\
   !*** ./resources/js/views/Details/movieDetails.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

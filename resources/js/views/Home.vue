@@ -73,6 +73,7 @@
                         autoplay: true,
                         autoplayTimeout: 5000,
                         autoplayHoverPause: true,
+                        dots: false,
                         animateOut: 'fadeOut',
                         autoHeight: true,
                         responsive: {
@@ -80,8 +81,7 @@
                                 items: 3
                             },
                             600: {
-                                items: 5,
-                                margin: 20,
+                                items: 5
                             },
                             1000: {
                                 items: 7
@@ -101,13 +101,13 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         autoHeight: true,
+                        dots: false,
                         responsive: {
                             0: {
                                 items: 3
                             },
                             600: {
-                                items: 5,
-                                margin: 20
+                                items: 5
                             },
                             1000: {
                                 items: 7
@@ -127,13 +127,13 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         autoHeight: true,
+                        dots: false,
                         responsive: {
                             0: {
                                 items: 3
                             },
                             600: {
-                                items: 5,
-                                margin: 20
+                                items: 5
                             },
                             1000: {
                                 items: 7
@@ -153,13 +153,13 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         autoHeight: true,
+                        dots: false,
                         responsive: {
                             0: {
                                 items: 3
                             },
                             600: {
-                                items: 5,
-                                margin: 20
+                                items: 5
                             },
                             1000: {
                                 items: 7
