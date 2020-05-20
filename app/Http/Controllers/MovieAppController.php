@@ -160,4 +160,24 @@ class MovieAppController extends Controller
             ])
             ->json();
     }
+
+    /**
+     * @return array
+     */
+    public function movieGenres()
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/genre/movie/list')
+            ->json();
+    }
+
+    /**
+     * @return array
+     */
+    public function tvGenres()
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/genre/tv/list')
+            ->json();
+    }
 }

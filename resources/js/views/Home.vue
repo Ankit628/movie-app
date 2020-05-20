@@ -38,7 +38,7 @@
                 latestMovies: [],
                 popularMovies: [],
                 popularTVShows: [],
-                airingToday: []
+                airingToday: [],
             }
         },
         mounted() {
@@ -54,7 +54,7 @@
                 .then(function () {
                     jQuery('.owl-banner').owlCarousel({
                         loop: true,
-                        autoplay: false,
+                        autoplay: true,
                         autoplayTimeout: 5000,
                         autoplayHoverPause: false,
                         animateOut: 'fadeOut',
