@@ -86,15 +86,16 @@
                         <h2 class="mb-3 text-dark">Similar Movies</h2>
                         <div class="owl-tv-similar owl-carousel owl-theme">
                             <div class="owl-carousel-item" v-bind:key="similar.id" v-for="similar in similars">
-                                <div class="item">
-                                    <router-link v-bind:to="{ name: 'tv-details', params: { id: similar.id } }">
+                                <div class="item bg-dark">
+                                    <router-link v-bind:to="{ name: 'tv-details', params: { id: similar.id } }" class="text-decoration-none">
                                         <div class="flip">
                                             <div class="front">
-                                                <img class="d-block w-100" v-bind:src="'https://image.tmdb.org/t/p/h632'+similar.poster_path" v-bind:alt="similar.name">
+                                                <img class="d-block w-100" v-bind:src="'https://image.tmdb.org/t/p/h632'+similar.poster_path" v-bind:alt="similar.title">
+                                                <h6 class="d-block d-sm-none">{{similar.title}}</h6>
                                             </div>
-                                            <div class="back">
-                                                <h5>{{similar.name}}</h5>
-                                                <p class="d-none d-md-block">{{similar.overview.slice(0, 70)}}...</p>
+                                            <div class="back text-white">
+                                                <h5 class="d-none d-sm-block">{{similar.title}}</h5>
+                                                <p>Click to know more...</p>
                                             </div>
                                         </div>
                                     </router-link>

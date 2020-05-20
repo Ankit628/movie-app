@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row align-items-center py-3">
                 <div class="col-md-8">
-                    <h2 class="text-left h1">
+                    <h2 class="text-left">
                         <router-link to="/" class="text-success text-decoration-none">
                             The Movies App
                         </router-link>

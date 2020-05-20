@@ -44,17 +44,17 @@
         mounted() {
             $('#wrapper').css('opacity', '0');
             Pace.restart();
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         },
         created() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             axios.get('/api/upcomingMovies/1')
                 .then(res => this.movies = res.data.results)
                 .catch(err => console.log(err))
                 .then(function () {
                     jQuery('.owl-banner').owlCarousel({
                         loop: true,
-                        autoplay: true,
+                        autoplay: false,
                         autoplayTimeout: 5000,
                         autoplayHoverPause: false,
                         animateOut: 'fadeOut',
@@ -177,31 +177,27 @@
     }
 
     .banner-area h2 {
-        top: 20px;
-        left: 20px;
+        top: 5%;
+        left: 5%;
         position: absolute;
         color: #fff;
         z-index: 100;
-        font-size: 1.2rem
+        font-size: 1.3rem
+    }
+
+    .banner-area h3 {
+        margin: 0;
     }
 
     @media (min-width: 512px) {
         .banner-area h2 {
-            top: 20px;
-            left: 30px;
             font-size: 2rem;
         }
     }
 
     @media (min-width: 992px) {
         .banner-area h2 {
-            top: 30px;
-            left: 50px;
-            font-size: 5rem;
-        }
-
-        h2 {
-            font-size: 50px;
+            font-size: 3rem;
         }
     }
 </style>

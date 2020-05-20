@@ -11052,6 +11052,21 @@ img {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   cursor: pointer;
+  color: #f8fafc;
+}
+
+.front h6 {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+div.bg-dark .front h6 {
+  background-color: #f8fafc;
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem;
+  color: #343a40;
 }
 
 .back {
@@ -11067,6 +11082,7 @@ img {
   display: inline-block;
   cursor: pointer;
   font-size: 0.9rem;
+  color: #fff;
 }
 
 .back .h5 {

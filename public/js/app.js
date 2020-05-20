@@ -2051,6 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "tvDetails",
   props: ['details', 'casts', 'similars']
@@ -2067,6 +2068,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2329,6 +2331,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "airingTodayItem",
   props: ['tv']
@@ -2454,6 +2457,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "latestMovieItems",
   props: ["movie"]
@@ -2523,6 +2527,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "popularMovItems",
   props: ['movie']
@@ -2539,6 +2544,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2608,6 +2614,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2981,12 +2988,13 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     $('#wrapper').css('opacity', '0');
     Pace.restart();
-    document.body.scrollTop = 0; // For Safari
-
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   },
   created: function created() {
     var _this = this;
+
+    document.body.scrollTop = 0; // For Safari
+
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
     axios__WEBPACK_IMPORTED_MODULE_5___default.a.get('/api/upcomingMovies/1').then(function (res) {
       return _this.movies = res.data.results;
@@ -2995,7 +3003,7 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function () {
       jQuery('.owl-banner').owlCarousel({
         loop: true,
-        autoplay: true,
+        autoplay: false,
         autoplayTimeout: 5000,
         autoplayHoverPause: false,
         animateOut: 'fadeOut',
@@ -7768,7 +7776,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nh2[data-v-66e58e06] {\n    font-size: 1.2rem;\n}\nh3[data-v-66e58e06] {\n    font-size: 1rem;\n}\n@media (min-width: 992px) {\nh2[data-v-66e58e06] {\n        font-size: 50px;\n}\nh3[data-v-66e58e06] {\n        font-size: 40px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.carousel-caption[data-v-66e58e06] {\n    top: 15%;\n    left: 8%;\n    background-color: #343a408c;\n    border-radius: 10px;\n    margin: 0.5rem;\n    padding: 0.7rem;\n    bottom: 0;\n    width: 125px;\n    height: 125px;\n}\nh2[data-v-66e58e06] {\n    font-size: 1.2rem;\n}\nh3[data-v-66e58e06] {\n    font-size: 1rem;\n}\n@media (min-width: 992px) {\nh2[data-v-66e58e06] {\n        font-size: 1.5rem;\n}\n.carousel-caption[data-v-66e58e06] {\n        width: 200px;\n}\n}\n@media (min-width: 1200px) {\n.carousel-caption[data-v-66e58e06] {\n        top: 10%;\n}\n}\n", ""]);
 
 // exports
 
@@ -7787,7 +7795,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.banner-area[data-v-63cd6604] {\n    position: relative;\n}\n.banner-area h2[data-v-63cd6604] {\n    top: 20px;\n    left: 20px;\n    position: absolute;\n    color: #fff;\n    z-index: 100;\n    font-size: 1.2rem\n}\n@media (min-width: 512px) {\n.banner-area h2[data-v-63cd6604] {\n        top: 20px;\n        left: 30px;\n        font-size: 2rem;\n}\n}\n@media (min-width: 992px) {\n.banner-area h2[data-v-63cd6604] {\n        top: 30px;\n        left: 50px;\n        font-size: 5rem;\n}\nh2[data-v-63cd6604] {\n        font-size: 50px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.banner-area[data-v-63cd6604] {\n    position: relative;\n}\n.banner-area h2[data-v-63cd6604] {\n    top: 5%;\n    left: 5%;\n    position: absolute;\n    color: #fff;\n    z-index: 100;\n    font-size: 1.3rem\n}\n.banner-area h3[data-v-63cd6604] {\n    margin: 0;\n}\n@media (min-width: 512px) {\n.banner-area h2[data-v-63cd6604] {\n        font-size: 2rem;\n}\n}\n@media (min-width: 992px) {\n.banner-area h2[data-v-63cd6604] {\n        font-size: 3rem;\n}\n}\n", ""]);
 
 // exports
 
@@ -39923,11 +39931,12 @@ var render = function() {
                   [
                     _c(
                       "div",
-                      { staticClass: "item" },
+                      { staticClass: "item bg-dark" },
                       [
                         _c(
                           "router-link",
                           {
+                            staticClass: "text-decoration-none",
                             attrs: {
                               to: {
                                 name: "tv-details",
@@ -39944,20 +39953,21 @@ var render = function() {
                                     src:
                                       "https://image.tmdb.org/t/p/h632" +
                                       similar.poster_path,
-                                    alt: similar.name
+                                    alt: similar.title
                                   }
-                                })
+                                }),
+                                _vm._v(" "),
+                                _c("h6", { staticClass: "d-block d-sm-none" }, [
+                                  _vm._v(_vm._s(similar.title))
+                                ])
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "back" }, [
-                                _c("h5", [_vm._v(_vm._s(similar.name))]),
+                              _c("div", { staticClass: "back text-white" }, [
+                                _c("h5", { staticClass: "d-none d-sm-block" }, [
+                                  _vm._v(_vm._s(similar.title))
+                                ]),
                                 _vm._v(" "),
-                                _c("p", { staticClass: "d-none d-md-block" }, [
-                                  _vm._v(
-                                    _vm._s(similar.overview.slice(0, 70)) +
-                                      "..."
-                                  )
-                                ])
+                                _c("p", [_vm._v("Click to know more...")])
                               ])
                             ])
                           ]
@@ -40193,11 +40203,12 @@ var render = function() {
                   [
                     _c(
                       "div",
-                      { staticClass: "item" },
+                      { staticClass: "item bg-dark" },
                       [
                         _c(
                           "router-link",
                           {
+                            staticClass: "text-decoration-none",
                             attrs: {
                               to: {
                                 name: "movie-details",
@@ -40214,20 +40225,21 @@ var render = function() {
                                     src:
                                       "https://image.tmdb.org/t/p/w342" +
                                       similar.poster_path,
-                                    alt: similar.name
+                                    alt: similar.title
                                   }
-                                })
+                                }),
+                                _vm._v(" "),
+                                _c("h6", { staticClass: "d-block d-sm-none" }, [
+                                  _vm._v(_vm._s(similar.title))
+                                ])
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "back" }, [
-                                _c("h5", [_vm._v(_vm._s(similar.name))]),
+                              _c("div", { staticClass: "back text-white" }, [
+                                _c("h5", { staticClass: "d-none d-sm-block" }, [
+                                  _vm._v(_vm._s(similar.title))
+                                ]),
                                 _vm._v(" "),
-                                _c("p", { staticClass: "d-none d-md-block" }, [
-                                  _vm._v(
-                                    _vm._s(similar.overview.slice(0, 70)) +
-                                      "..."
-                                  )
-                                ])
+                                _c("p", [_vm._v("Click to know more...")])
                               ])
                             ])
                           ]
@@ -40318,7 +40330,7 @@ var render = function() {
         _c("div", { staticClass: "col-md-8" }, [
           _c(
             "h2",
-            { staticClass: "text-left h1" },
+            { staticClass: "text-left" },
             [
               _c(
                 "router-link",
@@ -40484,11 +40496,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "item bg-dark text-white" },
+    { staticClass: "item bg-dark" },
     [
       _c(
         "router-link",
-        { attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } } },
+        {
+          staticClass: "text-decoration-none",
+          attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } }
+        },
         [
           _c("div", { staticClass: "flip" }, [
             _c("div", { staticClass: "front" }, [
@@ -40498,15 +40513,19 @@ var render = function() {
                   src: "https://image.tmdb.org/t/p/w342" + _vm.tv.poster_path,
                   alt: _vm.tv.name
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "d-block d-sm-none" }, [
+                _vm._v(_vm._s(_vm.tv.name))
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "back" }, [
-              _c("h5", [_vm._v(_vm._s(_vm.tv.name))]),
+              _c("h5", { staticClass: "d-none d-sm-block" }, [
+                _vm._v(_vm._s(_vm.tv.name))
+              ]),
               _vm._v(" "),
-              _c("p", { staticClass: "d-none d-md-block" }, [
-                _vm._v("Click to know more..")
-              ])
+              _c("p", [_vm._v("Click to know more...")])
             ])
           ])
         ]
@@ -40587,10 +40606,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      {
-        staticClass:
-          "carousel-caption text-left pl-0 pb-0 p-md-4 text-md-center"
-      },
+      { staticClass: "carousel-caption text-center" },
       [
         _c("h2", [_vm._v(" " + _vm._s(_vm.movie.title))]),
         _vm._v(" "),
@@ -40601,7 +40617,7 @@ var render = function() {
         _c(
           "router-link",
           {
-            staticClass: "btn btn-sm btn-success",
+            staticClass: "btn btn-sm btn-link p-0 text-success",
             attrs: {
               to: { name: "movie-details", params: { id: _vm.movie.id } }
             }
@@ -40697,11 +40713,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "item bg-dark text-white" },
+    { staticClass: "item bg-dark" },
     [
       _c(
         "router-link",
         {
+          staticClass: "text-decoration-none",
           attrs: { to: { name: "movie-details", params: { id: _vm.movie.id } } }
         },
         [
@@ -40714,15 +40731,19 @@ var render = function() {
                     "https://image.tmdb.org/t/p/w342" + _vm.movie.poster_path,
                   alt: _vm.movie.title
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "d-block d-sm-none" }, [
+                _vm._v(_vm._s(_vm.movie.title))
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "back" }, [
-              _c("h5", [_vm._v(_vm._s(_vm.movie.title))]),
+              _c("h5", { staticClass: "d-none d-sm-block" }, [
+                _vm._v(_vm._s(_vm.movie.title))
+              ]),
               _vm._v(" "),
-              _c("p", { staticClass: "d-none d-md-block" }, [
-                _vm._v("Click to know more")
-              ])
+              _c("p", [_vm._v("Click to know more...")])
             ])
           ])
         ]
@@ -40820,6 +40841,7 @@ var render = function() {
       _c(
         "router-link",
         {
+          staticClass: "text-decoration-none",
           attrs: { to: { name: "movie-details", params: { id: _vm.movie.id } } }
         },
         [
@@ -40832,15 +40854,19 @@ var render = function() {
                     "https://image.tmdb.org/t/p/w342" + _vm.movie.poster_path,
                   alt: _vm.movie.title
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "d-block d-sm-none" }, [
+                _vm._v(_vm._s(_vm.movie.title))
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "back" }, [
-              _c("h5", [_vm._v(_vm._s(_vm.movie.title))]),
+              _c("h5", { staticClass: "d-none d-sm-block" }, [
+                _vm._v(_vm._s(_vm.movie.title))
+              ]),
               _vm._v(" "),
-              _c("p", { staticClass: "d-none d-md-block" }, [
-                _vm._v("Click to know more...")
-              ])
+              _c("p", [_vm._v("Click to know more...")])
             ])
           ])
         ]
@@ -40877,7 +40903,10 @@ var render = function() {
     [
       _c(
         "router-link",
-        { attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } } },
+        {
+          staticClass: "text-decoration-none",
+          attrs: { to: { name: "tv-details", params: { id: _vm.tv.id } } }
+        },
         [
           _c("div", { staticClass: "flip" }, [
             _c("div", { staticClass: "front" }, [
@@ -40887,15 +40916,19 @@ var render = function() {
                   src: "https://image.tmdb.org/t/p/w342" + _vm.tv.poster_path,
                   alt: _vm.tv.name
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "d-block d-sm-none" }, [
+                _vm._v(_vm._s(_vm.tv.name))
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "back" }, [
-              _c("h5", [_vm._v(_vm._s(_vm.tv.name))]),
+              _c("h5", { staticClass: "d-none d-sm-block" }, [
+                _vm._v(_vm._s(_vm.tv.name))
+              ]),
               _vm._v(" "),
-              _c("p", { staticClass: "d-none d-md-block" }, [
-                _vm._v("Click to know more...")
-              ])
+              _c("p", [_vm._v("Click to know more...")])
             ])
           ])
         ]
@@ -41000,12 +41033,13 @@ var render = function() {
           [
             _c(
               "div",
-              { staticClass: "item bg-dark text-white" },
+              { staticClass: "item bg-dark" },
               [
                 search.media_type === "movie"
                   ? _c(
                       "router-link",
                       {
+                        staticClass: "text-decoration-none",
                         attrs: {
                           to: {
                             name: "movie-details",
@@ -41024,17 +41058,19 @@ var render = function() {
                                   search.poster_path,
                                 alt: search.name
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _c("h6", { staticClass: "d-block d-sm-none" }, [
+                              _vm._v(_vm._s(search.name))
+                            ])
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "back" }, [
-                            _c("h5", [_vm._v(_vm._s(search.name))]),
+                            _c("h5", { staticClass: "d-none d-sm-block" }, [
+                              _vm._v(_vm._s(search.name))
+                            ]),
                             _vm._v(" "),
-                            _c("p", [
-                              _vm._v(
-                                "Click the link bellow to learn more about the movie."
-                              )
-                            ])
+                            _c("p", [_vm._v("Click to know more...")])
                           ])
                         ])
                       ]
@@ -41045,6 +41081,7 @@ var render = function() {
                   ? _c(
                       "router-link",
                       {
+                        staticClass: "text-decoration-none",
                         attrs: {
                           to: { name: "tv-details", params: { id: search.id } }
                         }
@@ -41119,13 +41156,13 @@ var render = function() {
           [
             _c(
               "div",
-              { staticClass: "item bg-dark text-white" },
+              { staticClass: "item bg-dark" },
               [
                 _vm.type === "latestMovies" || _vm.type === "popularMovies"
                   ? _c(
                       "router-link",
                       {
-                        staticClass: "btn btn-sm btn-secondary",
+                        staticClass: "text-decoration-none",
                         attrs: {
                           to: { name: "movie-details", params: { id: more.id } }
                         }
@@ -41162,7 +41199,7 @@ var render = function() {
                   ? _c(
                       "router-link",
                       {
-                        staticClass: "btn btn-sm btn-secondary",
+                        staticClass: "text-decoration-none",
                         attrs: {
                           to: { name: "tv-details", params: { id: more.id } }
                         }
@@ -58028,15 +58065,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./resources/js/views/Details/movieDetails.vue ***!
   \*****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _movieDetails_vue_vue_type_template_id_490559be_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./movieDetails.vue?vue&type=template&id=490559be&scoped=true& */ "./resources/js/views/Details/movieDetails.vue?vue&type=template&id=490559be&scoped=true&");
 /* harmony import */ var _movieDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./movieDetails.vue?vue&type=script&lang=js& */ "./resources/js/views/Details/movieDetails.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _movieDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _movieDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -58066,7 +58102,7 @@ component.options.__file = "resources/js/views/Details/movieDetails.vue"
 /*!******************************************************************************!*\
   !*** ./resources/js/views/Details/movieDetails.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

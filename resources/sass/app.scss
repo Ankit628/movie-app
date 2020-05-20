@@ -69,6 +69,25 @@ img {
     transition: ease-in-out 0.5s;
     backface-visibility: hidden;
     cursor: pointer;
+    color: $body-bg;
+
+    h6 {
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+div.bg-dark {
+    .front {
+        h6 {
+            background-color: $body-bg;
+            width: 100%;
+            margin: 0;
+            padding: 0.5rem;
+            color: $black-2;
+        }
+    }
 }
 
 .back {
@@ -84,6 +103,7 @@ img {
     display: inline-block;
     cursor: pointer;
     font-size: 0.9rem;
+    color: #fff;
 
     .h5 {
         font-size: inherit;
