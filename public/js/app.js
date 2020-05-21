@@ -40246,7 +40246,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text" }, [
-                      _vm._v("$" + _vm._s(_vm.details.first_air_date))
+                      _vm._v(_vm._s(_vm.details.first_air_date))
                     ]),
                     _vm._v(" "),
                     _c("h6", { staticClass: "card-title" }, [
@@ -40254,7 +40254,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text" }, [
-                      _vm._v("$" + _vm._s(_vm.details.last_air_date))
+                      _vm._v(_vm._s(_vm.details.last_air_date))
                     ]),
                     _vm._v(" "),
                     _c("h6", { staticClass: "card-title" }, [

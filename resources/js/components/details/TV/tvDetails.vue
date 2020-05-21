@@ -43,9 +43,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h6 class="card-title">First Air Date:</h6>
-                                        <p class="card-text">${{details.first_air_date}}</p>
+                                        <p class="card-text">{{details.first_air_date}}</p>
                                         <h6 class="card-title">Last Air Date:</h6>
-                                        <p class="card-text">${{details.last_air_date}}</p>
+                                        <p class="card-text">{{details.last_air_date}}</p>
                                         <h6 class="card-title">Official Site:</h6>
                                         <a v-bind:href="details.homepage">{{details.homepage}}</a>
                                     </div>
