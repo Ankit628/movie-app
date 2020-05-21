@@ -39,7 +39,6 @@
         },
         watch: {
             $route(to, from) {
-                console.log(to);
                 this.fetchData(to.query.page, to.query.ids);
                 this.componentKey += 1;
             }

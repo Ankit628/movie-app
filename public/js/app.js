@@ -3155,7 +3155,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     $route: function $route(to, from) {
-      console.log(to);
       this.fetchData(to.query.page, to.query.ids);
       this.componentKey += 1;
     }
@@ -3244,7 +3243,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     $route: function $route(to, from) {
-      console.log(to);
       this.fetchData(to.query.page, to.query.ids);
       this.componentKey += 1;
     }
