@@ -2,7 +2,9 @@ import Home from './views/Home'
 import TVDetails from "./views/Details/TVDetails";
 import movieDetails from "./views/Details/movieDetails";
 import Search from "./views/Search";
-import viewMore from "./views/ViewMore"
+import viewMore from "./views/ViewMore";
+import FilterMovies from "./views/Filters/FilterMovies";
+import FilterTv from "./views/Filters/FilterTv";
 
 export const routes = [
     {
@@ -33,5 +35,22 @@ export const routes = [
         name: 'more',
         component: viewMore,
         props: true
+    },
+    {
+        path: '/filter/movie',
+        name: 'filter-movies',
+        component: FilterMovies,
+        props: (route) => ({
+            ids: route.query.ids,
+            page: route.query.page
+        })
+    }, {
+        path: '/filter/tv',
+        name: 'filter-tv',
+        component: FilterTv,
+        props: (route) => ({
+            ids: route.query.ids,
+            page: route.query.page
+        })
     },
 ];

@@ -39,3 +39,7 @@ Route::get('search/{slug}/{page}', 'MovieAppController@search');
 /*Get Genres*/
 Route::get('genre/movie', 'MovieAppController@movieGenres');
 Route::get('genre/tv', 'MovieAppController@tvGenres');
+
+/*Filter*/
+Route::get('discover/movie', 'MovieAppController@discoverMovies');
+Route::get('discover/tv', 'MovieAppController@discoverTvShows');

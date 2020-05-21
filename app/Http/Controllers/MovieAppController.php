@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class MovieAppController extends Controller
@@ -178,6 +179,32 @@ class MovieAppController extends Controller
     {
         return Http::withToken(config('services.tmbd.api_key'))
             ->get('https://api.themoviedb.org/3/genre/tv/list')
+            ->json();
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function discoverMovies(Request $request)
+    {
+        $page = $request->get('page');
+        $ids = $request->get('ids');
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/discover/movie', [
+                'page' => $page,
+                "with_genres" => $ids
+            ])
+            ->json();
+    }
+
+    /**
+     * @return array
+     */
+    public function discoverTvShows()
+    {
+        return Http::withToken(config('services.tmbd.api_key'))
+            ->get('https://api.themoviedb.org/3/discover/tv')
             ->json();
     }
 }
