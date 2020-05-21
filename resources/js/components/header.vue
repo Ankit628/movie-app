@@ -137,7 +137,7 @@
     }
 
     h6 {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .navbar-toggler {
@@ -151,6 +151,10 @@
     @media (min-width: 512px) {
         h2 {
             font-size: 2rem;
+        }
+
+        h6 {
+            font-size: 1rem;
         }
 
         .navbar-toggler {
