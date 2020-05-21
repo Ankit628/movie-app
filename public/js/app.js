@@ -8129,7 +8129,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.navbar[data-v-798ca618] {\n    justify-content: flex-start;\n}\nh2[data-v-798ca618] {\n    font-size: 1.8rem;\n}\nh6[data-v-798ca618] {\n    font-size: 0.8rem;\n}\n.navbar-toggler[data-v-798ca618] {\n    font-size: 1rem;\n}\nlabel[data-v-798ca618] {\n    cursor: pointer;\n}\n@media (min-width: 512px) {\nh2[data-v-798ca618] {\n        font-size: 2rem;\n}\nh6[data-v-798ca618] {\n        font-size: 1rem;\n}\n.navbar-toggler[data-v-798ca618] {\n        font-size: 1.2rem;\n}\n}\n@media (min-width: 992px) {\nh2[data-v-798ca618] {\n        font-size: 2.4rem;\n}\nh6[data-v-798ca618] {\n        font-size: 1.2rem;\n}\n.navbar-toggler[data-v-798ca618] {\n        font-size: 1.5rem;\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.navbar[data-v-798ca618] {\n    justify-content: flex-start;\n}\nh2[data-v-798ca618] {\n    font-size: 1.8rem;\n}\nh6[data-v-798ca618] {\n    font-size: 0.9rem;\n}\n.navbar-toggler[data-v-798ca618] {\n    font-size: 1rem;\n}\nlabel[data-v-798ca618] {\n    cursor: pointer;\n}\n@media (min-width: 512px) {\nh2[data-v-798ca618] {\n        font-size: 2rem;\n}\nh6[data-v-798ca618] {\n        font-size: 1rem;\n}\n.navbar-toggler[data-v-798ca618] {\n        font-size: 1.2rem;\n}\n}\n@media (min-width: 992px) {\nh2[data-v-798ca618] {\n        font-size: 2.4rem;\n}\nh6[data-v-798ca618] {\n        font-size: 1.2rem;\n}\n.navbar-toggler[data-v-798ca618] {\n        font-size: 1.5rem;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -40963,7 +40963,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "col-md-12 p-1" }, [
           _c(
             "div",
             {
@@ -41013,7 +41013,7 @@ var render = function() {
                                   "div",
                                   {
                                     key: movieGenre.id,
-                                    staticClass: "col-4 col-md-3"
+                                    staticClass: "col-6 col-md-3"
                                   },
                                   [
                                     _c(
@@ -41039,7 +41039,8 @@ var render = function() {
                                         _c(
                                           "h6",
                                           {
-                                            staticClass: "pl-2 d-inline-block"
+                                            staticClass:
+                                              "pl-sm-2 d-inline-block"
                                           },
                                           [_vm._v(_vm._s(movieGenre.name))]
                                         )
@@ -41083,7 +41084,7 @@ var render = function() {
                                   "div",
                                   {
                                     key: tvGenre.id,
-                                    staticClass: "col-4 col-md-3"
+                                    staticClass: "col-6 col-md-3"
                                   },
                                   [
                                     _c(
@@ -41109,7 +41110,8 @@ var render = function() {
                                         _c(
                                           "h6",
                                           {
-                                            staticClass: "pl-2 d-inline-block"
+                                            staticClass:
+                                              "pl-sm-2 d-inline-block"
                                           },
                                           [_vm._v(_vm._s(tvGenre.name))]
                                         )

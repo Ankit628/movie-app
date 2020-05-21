@@ -30,24 +30,24 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 p-1">
                     <div class="collapse" id="navbarToggleExternalContent">
                         <div class="bg-dark mt-2">
                             <h5 class="text-success text-center">
                                 Filter via Genres
                             </h5>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active text-success" id="nav-movies-tab" href="#nav-movies" data-toggle="tab" role="tab" aria-controls="nav-movies" aria-selected="true"">Movies</a>
-                                <a class="nav-item nav-link text-success" id="nav-tvShows-tab" href="#nav-tvShows" data-toggle="tab" role="tab" aria-controls="nav-tvShows" aria-selected="false"">TV Shows</a>
+                                <a class="nav-item nav-link active text-success" id="nav-movies-tab" href="#nav-movies" data-toggle="tab" role="tab" aria-controls="nav-movies" aria-selected="true">Movies</a>
+                                <a class="nav-item nav-link text-success" id="nav-tvShows-tab" href="#nav-tvShows" data-toggle="tab" role="tab" aria-controls="nav-tvShows" aria-selected="false">TV Shows</a>
                             </div>
                             <div class="tab-content text-white" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-movies" role="tabpanel" aria-labelledby="nav-movies-tab">
                                     <form @submit="submitMovFilterForm" id="submitMovFilterForm">
                                         <div class="row mx-auto my-1 text-success">
-                                            <div class="col-4 col-md-3" v-for="movieGenre in movieGenres" v-bind:key="movieGenre.id">
+                                            <div class="col-6 col-md-3" v-for="movieGenre in movieGenres" v-bind:key="movieGenre.id">
                                                 <label v-bind:for="'filterMovieId_'+movieGenre.id" class="m-0">
                                                     <input type="checkbox" v-bind:value="movieGenre.id" v-bind:name="movieGenre.name" v-bind:id="'filterMovieId_'+movieGenre.id" class="filterCheckbox d-inline-block">
-                                                    <h6 class="pl-2 d-inline-block">{{movieGenre.name}}</h6>
+                                                    <h6 class="pl-sm-2 d-inline-block">{{movieGenre.name}}</h6>
                                                 </label>
                                             </div>
                                         </div>
@@ -61,10 +61,10 @@
                                 <div class="tab-pane fade" id="nav-tvShows" role="tabpanel" aria-labelledby="nav-tvShows-tab">
                                     <form @submit="submitTvFilterForm" id="submitTvFilterForm">
                                         <div class="row mx-auto my-1 text-success">
-                                            <div class="col-4 col-md-3" v-for="tvGenre in tvGenres" v-bind:key="tvGenre.id">
+                                            <div class="col-6 col-md-3" v-for="tvGenre in tvGenres" v-bind:key="tvGenre.id">
                                                 <label v-bind:for="'filterTvId_'+tvGenre.id" class="m-0">
                                                     <input type="checkbox" v-bind:value="tvGenre.id" v-bind:name="tvGenre.name" v-bind:id="'filterTvId_'+tvGenre.id" class="filterCheckbox d-inline-block">
-                                                    <h6 class="pl-2 d-inline-block">{{tvGenre.name}}</h6>
+                                                    <h6 class="pl-sm-2 d-inline-block">{{tvGenre.name}}</h6>
                                                 </label>
                                             </div>
                                         </div>
@@ -137,7 +137,7 @@
     }
 
     h6 {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .navbar-toggler {
