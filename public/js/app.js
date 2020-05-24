@@ -40322,7 +40322,7 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("h2", { staticClass: "mb-3 text-dark" }, [
-              _vm._v("Similar Movies")
+              _vm._v("Similar Tv Series")
             ]),
             _vm._v(" "),
             _c(

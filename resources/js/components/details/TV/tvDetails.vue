@@ -83,7 +83,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="mb-3 text-dark">Similar Movies</h2>
+                        <h2 class="mb-3 text-dark">Similar Tv Series</h2>
                         <div class="owl-tv-similar owl-carousel owl-theme">
                             <div class="owl-carousel-item" v-bind:key="similar.id" v-for="similar in similars">
                                 <div class="item bg-dark">
